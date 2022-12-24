@@ -24,6 +24,7 @@ class AuthUserController extends ApiController
     {
         $request->authenticateUser();
 
+        \Log::info($request->user);
         $response = (new UserProfileRecourse($request->user))->resolve();
 
         return $this->response(array_merge($response, [

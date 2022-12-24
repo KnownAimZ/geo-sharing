@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Api\ApiController;
 use App\Http\Requests\UpdateUserProfileRequest;
@@ -21,6 +21,10 @@ class UserProfileController extends ApiController
     public function show(Request $request): JsonResponse
     {
         $response = (new UserProfileRecourse($request->user()))->resolve();
+
+        return $this->response([
+            'message'=> 'hui',
+        ]);
 
         return $this->response(array_merge($response, [
             'token' => $request->bearerToken(),
