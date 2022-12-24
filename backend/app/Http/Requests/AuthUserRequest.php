@@ -27,7 +27,7 @@ class AuthUserRequest extends FormRequest
     {
         return [
             'email' => ['required', 'string', 'email', 'max:250'],
-            'password' => ['required', 'string'],
+            'password' => ['required', 'string', 'min:4'],
         ];
     }
 
@@ -35,7 +35,13 @@ class AuthUserRequest extends FormRequest
     {
         $user = User::where('email', $this->get('email'))->first();
 
-        if (!$user && Hash::check($this->get('password'), $user->password)) {
+        if (! $user) {
+            throw ValidationException::withMessages([
+                'error' => 'User does not exists.',
+            ]);
+        }
+
+        if (! Hash::check($this->get('password'), $user->password)) {
             throw ValidationException::withMessages([
                 'error' => 'Wrong email or password.',
             ]);
