@@ -22,10 +22,6 @@ class UserProfileController extends ApiController
     {
         $response = (new UserProfileRecourse($request->user()))->resolve();
 
-        return $this->response([
-            'message'=> 'hui',
-        ]);
-
         return $this->response(array_merge($response, [
             'token' => $request->bearerToken(),
         ]));
