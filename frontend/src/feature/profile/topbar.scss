@@ -1,0 +1,21 @@
+.topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #e7ebef;
+  padding: 16px 12px;
+
+  > .ant-typography {
+    margin-top: 0;
+  }
+
+  &__content {
+    margin-left: auto;
+    display: flex;
+    height: 100%;
+  }
+}
