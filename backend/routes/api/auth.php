@@ -15,12 +15,8 @@ Route::group(['as' => 'api.auth.users.', 'prefix' => 'users'], function () {
     Route::post('sign-up', [RegisterUserController::class, '__invoke'])
         ->name('sign-up');
 
-    Route::get('test', function () {
-        return 'hui';
-    });
-
     Route::middleware(['auth:sanctum'])->group(function () {
-        Route::get('user-profile', [UserProfileController::class, 'show'])
+        Route::get('profile', [UserProfileController::class, 'show'])
             ->name('profile');
 
         Route::put('update-profile', [UserProfileController::class, 'update'])
