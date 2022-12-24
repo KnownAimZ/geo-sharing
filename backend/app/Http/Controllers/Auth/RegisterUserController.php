@@ -40,7 +40,7 @@ class RegisterUserController extends ApiController
 
         return $this->response(array_merge($response, [
             'token' => $user->createToken($user->email)->plainTextToken,
-            'message' => __('api.successfully_registered'),
+            'message' => __('You have been successfully registered.'),
         ]));
     }
 }
