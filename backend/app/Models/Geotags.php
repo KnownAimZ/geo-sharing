@@ -13,6 +13,7 @@ class Geotags extends Model
     protected $table = 'geotags';
 
     protected $fillable = [
+        'name',
         'user_id',
         'description',
         'location',

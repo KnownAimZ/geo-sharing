@@ -14,8 +14,9 @@ class GeoTagRequest extends FormRequest
     public function rules()
     {
         return [
-            'description' => ['required','string','min:5'],
-            'location' => ['required','string'],
+            'name' => ['required','string','min:5'],
+            'description' => ['nullable','string'],
+            'location' => ['required','string', 'regex:/-?(\d*\.)?\d+,\s*-?(\d*\.)?\d+/'],
         ];
     }
 }
