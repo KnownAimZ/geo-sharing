@@ -1,9 +1,11 @@
 import { Button, Form, Input } from "antd";
-import { axiosInstance, setToken } from "../../api";
+import { axiosInstance, handleApiFormError, setToken } from "../../api";
 import React, { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { setUser, User } from "./authSlice";
 import { useAppDispatch, useAppSelector } from "../../hooks";
+
+const { useForm } = Form;
 
 type TRegister = {
   first_name: string;
@@ -17,16 +19,10 @@ export const Register = () => {
   const dispatch = useAppDispatch();
   const user = useAppSelector((state) => state.user.user);
   const navigate = useNavigate();
+  const [form] = useForm();
 
-  const onFinish = async (values: TRegister) => {
+  const loadUser = async (values: TRegister) => {
     const { data } = await axiosInstance.post("users/sign-up", values);
-    console.log(data);
-    // const data = {
-    //   token: "123sfadxzxcc",
-    //   last_name: "Bokii",
-    //   email: "nikita.bokiy2001@gmail.com",
-    //   user_id: 1,
-    // };
 
     if (!data) {
       return;
@@ -44,6 +40,10 @@ export const Register = () => {
     dispatch(setUser(user));
   };
 
+  const onFinish = async (values: TRegister) => {
+    handleApiFormError(() => loadUser(values), form);
+  };
+
   useEffect(() => {
     if (user) {
       navigate("/");
@@ -57,6 +57,7 @@ export const Register = () => {
         initialValues={{ remember: true }}
         onFinish={onFinish}
         autoComplete="off"
+        form={form}
       >
         <Form.Item
           label="First name"

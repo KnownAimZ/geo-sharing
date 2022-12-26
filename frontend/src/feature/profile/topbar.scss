@@ -11,11 +11,17 @@
 
   > .ant-typography {
     margin-top: 0;
+    margin-bottom: 0;
   }
 
   &__content {
     margin-left: auto;
     display: flex;
+    align-items: center;
     height: 100%;
+
+    > .ant-avatar {
+      margin-right: 8px;
+    }
   }
 }

@@ -1,4 +1,5 @@
-import axios from "axios";
+import { FormInstance, notification } from "antd";
+import axios, { AxiosError } from "axios";
 
 export type Response<T extends Record<string, string | number>> = T & {
   message: string;
@@ -47,3 +48,31 @@ export const axiosInstance = axios.create({
     "Content-Type": "application/json",
   },
 });
+
+export const handleApiFormError = async (
+  callback: () => void,
+  form: FormInstance
+) => {
+  try {
+    await callback();
+  } catch (error: Error | AxiosError) {
+    if (!axios.isAxiosError(error)) {
+      notification.error({ message: "Oops, something went wrong!" });
+      return;
+    }
+    const _data = error.response?.data as ErrorResponse;
+    console.log(_data);
+    const errorNames = Object.keys(_data.errors);
+    if (
+      !errorNames.length ||
+      (errorNames.length === 1 && errorNames.includes("error"))
+    ) {
+      notification.error({ message: _data.message });
+      return;
+    }
+    const formattedErrors = Object.entries(_data.errors).map(
+      ([name, value]) => ({ name: name, errors: value })
+    );
+    form.setFields(formattedErrors);
+  }
+};

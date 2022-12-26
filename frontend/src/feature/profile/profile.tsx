@@ -1,11 +1,9 @@
 import React, { useEffect } from "react";
-import { axiosInstance, getToken } from "../../api";
+import { axiosInstance } from "../../api";
 
 export const Profile = () => {
   const loadProfile = async () => {
-    const { data } = await axiosInstance.get(
-      "/users/profile"
-    );
+    const { data } = await axiosInstance.get("/users/profile");
     console.log(data);
   };
 
