@@ -33,6 +33,7 @@ class GeotagController extends ApiController
         $user = $request->user();
 
         $user->geoTags()->create([
+            'name' => $request->name,
             'description' => $request->description,
             'location' => $request->location
         ]);
