@@ -14,7 +14,7 @@ export type ApiError = {
   [field: string]: string[];
 };
 
-const baseURL = "https://f206-5-58-52-101.ngrok.io/api/";
+const baseURL = "http://localhost:80/api/";
 
 export const getToken = () => {
   const token = localStorage.getItem("token");

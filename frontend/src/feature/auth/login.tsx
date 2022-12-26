@@ -29,8 +29,6 @@ export const Login = () => {
 
   const onFinish = async (values: TLogin) => {
     const { data } = await axiosInstance.post("/users/login", values);
-    // const { _data } = await axios.get("https://f1e7-5-58-52-101.ngrok.io/sanctum/csrf-cookie")
-    // console.log(_data)
     // const data = {
     //   token: "123sfadxzxcc",
     //   first_name: "Nikita",
