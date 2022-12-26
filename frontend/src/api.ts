@@ -14,7 +14,7 @@ export type ApiError = {
   [field: string]: string[];
 };
 
-const baseURL = "http://0.0.0.0:80/api/";
+const baseURL = "http://localhost:80/api/";
 
 export const getToken = () => {
   const token = localStorage.getItem("token");
