@@ -46,4 +46,14 @@ class User extends Authenticatable
     {
         return $this->hasMany(Geotags::class, 'user_id', 'id');
     }
+
+    public function friendList(): HasMany
+    {
+        return $this->hasMany(FriendList::class, 'user_id', 'id');
+    }
+
+    public function friendRequest(): HasMany
+    {
+        return $this->hasMany(FriendRequests::class, 'user_id', 'id');
+    }
 }
