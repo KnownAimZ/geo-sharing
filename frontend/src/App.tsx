@@ -6,6 +6,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Register } from "./feature/auth/register";
 import { Profile } from "./feature/profile/profile";
 import { Topbar } from "./feature/profile/topbar";
+import { Geotag } from "./feature/geotag/geotag";
 
 const router = createBrowserRouter([
   {
@@ -13,6 +14,7 @@ const router = createBrowserRouter([
     element: (
       <>
         <Topbar />
+        <Geotag />
         <Profile />
         <Logout />
       </>

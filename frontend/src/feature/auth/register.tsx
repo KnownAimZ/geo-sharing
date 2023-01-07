@@ -1,4 +1,4 @@
-import { Button, Form, Input } from "antd";
+import { Button, Form, Input, notification } from "antd";
 import { axiosInstance, handleApiFormError, setToken } from "../../api";
 import React, { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
@@ -38,6 +38,9 @@ export const Register = () => {
 
     setToken(token);
     dispatch(setUser(user));
+    notification.success({
+      message: `Welcome, ${user.first_name} ${user.last_name}!`,
+    });
   };
 
   const onFinish = async (values: TRegister) => {

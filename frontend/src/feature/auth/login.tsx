@@ -1,12 +1,15 @@
-import { Form, Input, Button } from "antd";
+import { Form, Input, Button, notification } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
-import { axiosInstance, Response, setToken } from "../../api";
+import {
+  axiosInstance,
+  handleApiFormError,
+  setToken,
+} from "../../api";
 import { setUser, User } from "./authSlice";
 import { useAppDispatch, useAppSelector } from "../../hooks";
 import React, { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "antd/es/form/Form";
-import axios from "axios";
 
 type TLogin = {
   email: string;
@@ -27,15 +30,8 @@ export const Login = () => {
     }
   }, [user]);
 
-  const onFinish = async (values: TLogin) => {
+  const loginUser = async (values: TLogin) => {
     const { data } = await axiosInstance.post("/users/login", values);
-    // const data = {
-    //   token: "123sfadxzxcc",
-    //   first_name: "Nikita",
-    //   last_name: "Bokii",
-    //   email: "nikita.bokiy2001@gmail.com",
-    //   user_id: 1,
-    // };
 
     if (!data) {
       return;
@@ -51,6 +47,13 @@ export const Login = () => {
 
     setToken(token);
     dispatch(setUser(user));
+    notification.success({
+      message: `Welcome back, ${user.first_name} ${user.last_name}!`,
+    });
+  };
+
+  const onFinish = async (values: any) => {
+    handleApiFormError(() => loginUser(values), form);
   };
 
   return (
