@@ -5,12 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0ebe6c50-3b78-41da-af00-fda54472992f" name="Changes" comment="second">
+      <change afterPath="$PROJECT_DIR$/backend/routes/api/friends.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/GeotagController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/GeotagController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Http/Requests/GeoTagRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Requests/GeoTagRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Http/Resources/GeoTagResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Resources/GeoTagResource.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Models/Geotags.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Models/Geotags.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/migrations/2022_12_25_192731_create_geotags_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/migrations/2022_12_25_192731_create_geotags_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Models/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -267,7 +265,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671911298931</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Geotags">
+      <created>1672048380348</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1672048380348</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
