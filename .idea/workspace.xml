@@ -6,12 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="0ebe6c50-3b78-41da-af00-fda54472992f" name="Changes" comment="123">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Http/Resources/GeoTagResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Resources/GeoTagResource.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/.htaccess" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/.htaccess" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/api.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/routes/api/auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/api/auth.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/routes/api/friends.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/api/friends.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/routes/api/geotags.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/api/geotags.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/GeotagController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/GeotagController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Http/Requests/GeoTagRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Requests/GeoTagRequest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -211,7 +207,7 @@
       <workItem from="1671905576746" duration="6410000" />
       <workItem from="1671996342843" duration="1006000" />
       <workItem from="1672044232700" duration="3809000" />
-      <workItem from="1673186138837" duration="7023000" />
+      <workItem from="1673186138837" duration="7247000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1670074320573</created>
@@ -339,7 +335,21 @@
       <option name="project" value="LOCAL" />
       <updated>1673191425542</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="123">
+      <created>1673194379134</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1673194379134</updated>
+    </task>
+    <task id="LOCAL-00020" summary="123">
+      <created>1673194546475</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1673194546475</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
