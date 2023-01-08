@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0ebe6c50-3b78-41da-af00-fda54472992f" name="Changes" comment="second">
-      <change afterPath="$PROJECT_DIR$/backend/routes/api/friends.php" afterDir="false" />
+    <list default="true" id="0ebe6c50-3b78-41da-af00-fda54472992f" name="Changes" comment="Friends">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/GeotagController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/GeotagController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/routes/api/geotags.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/api/geotags.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -208,6 +207,7 @@
       <workItem from="1671905576746" duration="6410000" />
       <workItem from="1671996342843" duration="1006000" />
       <workItem from="1672044232700" duration="3809000" />
+      <workItem from="1673186138837" duration="785000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1670074320573</created>
@@ -272,7 +272,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672048380348</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Friends">
+      <created>1672079148527</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1672079148527</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -300,6 +307,7 @@
     <MESSAGE value="Added: update user profile." />
     <MESSAGE value="commit" />
     <MESSAGE value="Geotags" />
-    <option name="LAST_COMMIT_MESSAGE" value="Geotags" />
+    <MESSAGE value="Friends" />
+    <option name="LAST_COMMIT_MESSAGE" value="Friends" />
   </component>
 </project>
