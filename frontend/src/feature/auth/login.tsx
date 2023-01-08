@@ -1,10 +1,6 @@
 import { Form, Input, Button, notification } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
-import {
-  axiosInstance,
-  handleApiFormError,
-  setToken,
-} from "../../api";
+import { axiosInstance, handleApiFormError, setToken } from "../../api";
 import { setUser, User } from "./authSlice";
 import { useAppDispatch, useAppSelector } from "../../hooks";
 import React, { useEffect } from "react";

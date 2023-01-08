@@ -7,6 +7,7 @@ import { Register } from "./feature/auth/register";
 import { Profile } from "./feature/profile/profile";
 import { Topbar } from "./feature/profile/topbar";
 import { Geotag } from "./feature/geotag/geotag";
+import { UpdateGeotag } from "./feature/geotag/update-geotag";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
   {
     path: "/register",
     element: <Register />,
+  },
+  {
+    path: "/geotag/:id",
+    element: <UpdateGeotag />,
   },
 ]);
 
