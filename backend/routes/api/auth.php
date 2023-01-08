@@ -3,9 +3,10 @@
 use App\Http\Controllers\Auth\AuthUserController;
 use App\Http\Controllers\Auth\RegisterUserController;
 use App\Http\Controllers\Auth\UserProfileController;
+use Illuminate\Support\Facades\Route;
 
 Route::group(['as' => 'api.auth.users.', 'prefix' => 'users'], function () {
-    Route::post('login', [AuthUserController::class, 'store'])
+    Route::post('login', ['as'=> 'login', AuthUserController::class, 'store'])
         ->middleware('guest:api')
         ->name('login');
 
