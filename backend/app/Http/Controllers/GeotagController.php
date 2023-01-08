@@ -12,13 +12,30 @@ use Illuminate\Http\Request;
 
 class GeotagController extends ApiController
 {
-    public function show(Request $request): JsonResponse
+    public function __invoke(Request $request): JsonResponse
     {
         /** @var User $user */
         $user = $request->user();
 
         $geotags = $user->geoTags()->get();
 
+        return $this->response([
+            'geotags' => GeoTagResource::collection($geotags),
+        ]);
+    }
+
+    /**
+     * Show selected geotag.
+     *
+     * @param  DestroyGeoTagRequest  $request
+     * @return JsonResponse
+     */
+    public function show(DestroyGeoTagRequest $request): JsonResponse
+    {
+        /** @var User $user */
+        $user = $request->user();
+
+        $geotags = $user->geoTags()->where('id', $request->geotag_id)->get();
         return $this->response([
             'geotags' => GeoTagResource::collection($geotags),
         ]);

@@ -3,7 +3,10 @@
 use App\Http\Controllers\GeotagController;
 
 Route::group(['as' => 'api.users', 'prefix' => 'users', 'middleware' => 'auth:sanctum'], function () {
-    Route::get('geotags', [GeotagController::class, 'show']);
+    Route::get('geotags', [GeotagController::class, '__invoke']);
+
+    Route::get('show-geotag', [GeotagController::class, 'show'])
+        ->name('show-geotag');
 
     Route::post('create-geotag', [GeotagController::class, 'store'])
         ->name('create-geotag');
