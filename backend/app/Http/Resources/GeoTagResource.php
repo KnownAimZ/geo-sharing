@@ -18,7 +18,7 @@ class GeoTagResource extends JsonResource
             'geotag_id' => $this->id,
             'name' => $this->name,
             'description' => $this->description,
-            'location' => json_encode($this->location, true),
+            'location' => json_encode($this->location),
         ];
     }
 }
