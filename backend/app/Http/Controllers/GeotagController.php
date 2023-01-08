@@ -65,7 +65,7 @@ class GeotagController extends ApiController
     /**
      * Update geotag.
      *
-     * @param  GeoTagRequest  $request
+     * @param  UpdateGeoTagRequest  $request
      * @return JsonResponse
      */
     public function update(UpdateGeoTagRequest $request): JsonResponse
@@ -73,7 +73,7 @@ class GeotagController extends ApiController
         /** @var User $user */
         $user = $request->user();
 
-        $user->geoTags()->update([
+        $user->geoTags()->where('id', $request->geotag_id)->update([
             'name' => $request->name,
             'description' => $request->description,
             'location' => $request->location
