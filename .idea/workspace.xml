@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0ebe6c50-3b78-41da-af00-fda54472992f" name="Changes" comment="123">
-      <change beforePath="$PROJECT_DIR$/backend/database/migrations/2022_12_25_192731_create_geotags_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/migrations/2022_12_25_192731_create_geotags_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Http/Resources/GeoTagResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Resources/GeoTagResource.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -205,7 +205,7 @@
       <workItem from="1671905576746" duration="6410000" />
       <workItem from="1671996342843" duration="1006000" />
       <workItem from="1672044232700" duration="3809000" />
-      <workItem from="1673186138837" duration="3715000" />
+      <workItem from="1673186138837" duration="3743000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1670074320573</created>
@@ -305,7 +305,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673190950127</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="123">
+      <created>1673191064877</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1673191064877</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
