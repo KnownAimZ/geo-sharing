@@ -53,7 +53,7 @@ class GeotagController extends ApiController
         $user->geoTags()->create([
             'name' => $request->name,
             'description' => $request->description,
-            'location' => json_encode($request->location),
+            'location' => json_encode($request->location, JSON_FORCE_OBJECT),
         ]);
 
         return $this->response([
