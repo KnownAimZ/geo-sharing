@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Api\ApiController;
 use App\Http\Requests\DestroyGeoTagRequest;
 use App\Http\Requests\GeoTagRequest;
+use App\Http\Requests\UpdateGeoTagRequest;
 use App\Http\Resources\GeoTagResource;
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
@@ -67,7 +68,7 @@ class GeotagController extends ApiController
      * @param  GeoTagRequest  $request
      * @return JsonResponse
      */
-    public function update(GeoTagRequest $request): JsonResponse
+    public function update(UpdateGeoTagRequest $request): JsonResponse
     {
         /** @var User $user */
         $user = $request->user();
