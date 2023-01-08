@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0ebe6c50-3b78-41da-af00-fda54472992f" name="Changes" comment="Small changes.">
+    <list default="true" id="0ebe6c50-3b78-41da-af00-fda54472992f" name="Changes" comment="1">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/GeotagController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/GeotagController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Http/Resources/GeoTagResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Resources/GeoTagResource.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/database/migrations/2022_12_25_192731_create_geotags_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/migrations/2022_12_25_192731_create_geotags_table.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -206,7 +208,7 @@
       <workItem from="1671905576746" duration="6410000" />
       <workItem from="1671996342843" duration="1006000" />
       <workItem from="1672044232700" duration="3809000" />
-      <workItem from="1673186138837" duration="3520000" />
+      <workItem from="1673186138837" duration="3602000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1670074320573</created>
@@ -292,7 +294,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673189932356</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="1">
+      <created>1673190867120</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1673190867120</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -323,6 +332,7 @@
     <MESSAGE value="Friends" />
     <MESSAGE value="Added: update and delete for geotags." />
     <MESSAGE value="Small changes." />
-    <option name="LAST_COMMIT_MESSAGE" value="Small changes." />
+    <MESSAGE value="1" />
+    <option name="LAST_COMMIT_MESSAGE" value="1" />
   </component>
 </project>

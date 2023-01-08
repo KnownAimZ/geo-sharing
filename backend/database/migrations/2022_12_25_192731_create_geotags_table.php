@@ -19,7 +19,7 @@ return new class extends Migration
             $table->foreign('user_id')->on('users')->references('id')->onDelete('cascade');
             $table->string('name')->nullable(false);
             $table->string('description');
-            $table->text('location')->nullable(false);
+            $table->string('location')->nullable(false);
             $table->timestamps();
         });
     }
