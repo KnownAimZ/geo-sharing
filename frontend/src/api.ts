@@ -15,6 +15,8 @@ export type ApiError = {
   [field: string]: string[];
 };
 
+export const GOOGLE_MAP_API_KEY = "AIzaSyB0sb9WA8KR-j-StEjKY8y4V-cTK9sxh-E";
+
 const baseURL = "http://localhost:80/api/";
 
 export const getToken = () => {
