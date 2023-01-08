@@ -16,7 +16,8 @@ class GeoTagRequest extends FormRequest
         return [
             'name' => ['required','string','min:5'],
             'description' => ['nullable','string'],
-            'location' => ['required', 'object'],
+            'location.lat' => ['required'],
+            'location.lng' => ['required'],
         ];
     }
 }
