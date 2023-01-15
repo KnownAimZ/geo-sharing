@@ -16,7 +16,7 @@ const router = createBrowserRouter([
       <>
         <Topbar />
         <Geotag />
-        <Profile />
+        {/* <Profile /> */}
         <Logout />
       </>
     ),

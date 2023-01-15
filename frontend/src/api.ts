@@ -57,6 +57,7 @@ export const handleApiFormError = async (
 ) => {
   try {
     await callback();
+    // @ts-ignore
   } catch (error: Error | AxiosError) {
     if (!axios.isAxiosError(error)) {
       notification.error({ message: "Oops, something went wrong!" });
