@@ -1,13 +1,17 @@
+$topbar-height: 40px;
+$topbar-vertical-paddings: 16px;
+$topbar-full-height: 75px;
+
 .topbar {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  height: 40px;
+  height: $topbar-height;
   display: flex;
   align-items: center;
   border-bottom: 1px solid #e7ebef;
-  padding: 16px 12px;
+  padding: $topbar-vertical-paddings 12px;
 
   > .ant-typography {
     margin-top: 0;
@@ -23,5 +27,20 @@
     > .ant-avatar {
       margin-right: 8px;
     }
+  }
+}
+
+.sidebar {
+  height: calc(100vh - $topbar-full-height);
+  width: 256px;
+}
+
+.container {
+  margin-top: $topbar-full-height;
+  display: flex;
+  width: 100vw;
+
+  &__content {
+    padding: 16px;
   }
 }
