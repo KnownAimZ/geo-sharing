@@ -51,7 +51,7 @@ export const Login = () => {
   };
 
   return (
-    <>
+    <div className="unauthorized-app">
       <Form
         name="basic"
         labelCol={{ span: 8 }}
@@ -87,6 +87,6 @@ export const Login = () => {
         </Form.Item>
       </Form>
       <Link to={"/register"}>Register</Link>
-    </>
+    </div>
   );
 };

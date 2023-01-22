@@ -54,7 +54,7 @@ export const Register = () => {
   }, [user]);
 
   return (
-    <>
+    <div className="unauthorized-app">
       <Form
         name="basic"
         initialValues={{ remember: true }}
@@ -112,6 +112,6 @@ export const Register = () => {
         </Form.Item>
       </Form>
       <Link to={"/login"}>Login</Link>
-    </>
+    </div>
   );
 };

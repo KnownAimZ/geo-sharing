@@ -2,6 +2,8 @@ $topbar-height: 40px;
 $topbar-vertical-paddings: 16px;
 $topbar-full-height: 75px;
 
+$sidebar-width: 256px;
+
 .topbar {
   position: fixed;
   top: 0;
@@ -32,7 +34,8 @@ $topbar-full-height: 75px;
 
 .sidebar {
   height: calc(100vh - $topbar-full-height);
-  width: 256px;
+  width: $sidebar-width;
+  position: fixed;
 }
 
 .container {
@@ -41,6 +44,8 @@ $topbar-full-height: 75px;
   width: 100vw;
 
   &__content {
+    margin-left: $sidebar-width;
     padding: 16px;
+    flex: 1;
   }
 }
