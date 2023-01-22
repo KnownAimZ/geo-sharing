@@ -4,6 +4,7 @@ import React from "react";
 import { Avatar, Space, Typography } from "antd";
 import { User } from "../auth/authSlice";
 import "./topbar.scss";
+import { Link } from "react-router-dom";
 
 const { Text } = Typography;
 
@@ -22,13 +23,18 @@ export const Topbar = () => {
 
   return (
     <div className="topbar">
-      <Title level={2}>App</Title>
+      <Link to={"/geotags"}>
+        <Title level={2}>App</Title>
+      </Link>
+
       <div className="topbar__content">
         <Avatar shape="square" size={40}>
           {getFirstLetters(user)}
         </Avatar>
         <Space direction="vertical" size={0} align="start">
-          <Text>{getFullName(user)}</Text>
+          <Link to={"/profile"}>
+            <Text>{getFullName(user)}</Text>
+          </Link>
           <Text>{user?.email}</Text>
         </Space>
       </div>

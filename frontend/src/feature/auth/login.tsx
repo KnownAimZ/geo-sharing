@@ -12,8 +12,6 @@ type TLogin = {
   password: string;
 };
 
-// type TLoginResponse
-
 export const Login = () => {
   const dispatch = useAppDispatch();
   const user = useAppSelector((state) => state.user.user);
@@ -22,7 +20,7 @@ export const Login = () => {
 
   useEffect(() => {
     if (user) {
-      navigate("/");
+      navigate("/geotags");
     }
   }, [user]);
 

@@ -1,4 +1,4 @@
-import { Button, Form, Input } from "antd";
+import { Button, Form, Input, notification } from "antd";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { axiosInstance, handleApiFormError } from "../../api";
@@ -34,6 +34,10 @@ export const UpdateGeotag = () => {
       `/users/update-geotag?geotag_id=${geotag.geotag_id}`,
       requestData
     );
+
+    notification.success({
+      message: `${requestData.name} successfully updated!`,
+    });
   };
 
   const updateForm = () => {

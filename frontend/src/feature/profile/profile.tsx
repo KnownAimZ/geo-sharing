@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 import { axiosInstance, handleApiFormError } from "../../api";
 import { useAppDispatch } from "../../hooks";
 import { setUser, User } from "../auth/authSlice";
+import { Logout } from "../auth/logout";
 const { useForm } = Form;
 
 export const Profile = () => {
@@ -41,53 +42,56 @@ export const Profile = () => {
   }, []);
 
   return (
-    <Form
-      name="basic"
-      initialValues={{ remember: true }}
-      onFinish={onFinish}
-      autoComplete="off"
-      form={form}
-    >
-      <Form.Item
-        label="First name"
-        name="first_name"
-        rules={[{ required: true, message: "Please input your username!" }]}
+    <>
+      <Form
+        name="basic"
+        initialValues={{ remember: true }}
+        onFinish={onFinish}
+        autoComplete="off"
+        form={form}
       >
-        <Input />
-      </Form.Item>
+        <Form.Item
+          label="First name"
+          name="first_name"
+          rules={[{ required: true, message: "Please input your username!" }]}
+        >
+          <Input />
+        </Form.Item>
 
-      <Form.Item
-        label="Last name"
-        name="last_name"
-        rules={[{ required: true, message: "Please input your username!" }]}
-      >
-        <Input />
-      </Form.Item>
+        <Form.Item
+          label="Last name"
+          name="last_name"
+          rules={[{ required: true, message: "Please input your username!" }]}
+        >
+          <Input />
+        </Form.Item>
 
-      <Form.Item
-        label="Email"
-        name="email"
-        rules={[
-          { type: "email", message: "Plese enter valid email" },
-          { required: true, message: "Please input your username!" },
-        ]}
-      >
-        <Input />
-      </Form.Item>
+        <Form.Item
+          label="Email"
+          name="email"
+          rules={[
+            { type: "email", message: "Plese enter valid email" },
+            { required: true, message: "Please input your username!" },
+          ]}
+        >
+          <Input />
+        </Form.Item>
 
-      <Form.Item
-        label="Password"
-        name="password"
-        rules={[{ required: true, message: "Please input your password!" }]}
-      >
-        <Input.Password />
-      </Form.Item>
+        <Form.Item
+          label="Password"
+          name="password"
+          rules={[{ required: true, message: "Please input your password!" }]}
+        >
+          <Input.Password />
+        </Form.Item>
 
-      <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-        <Button type="primary" htmlType="submit">
-          Submit
-        </Button>
-      </Form.Item>
-    </Form>
+        <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
+          <Button type="primary" htmlType="submit">
+            Submit
+          </Button>
+        </Form.Item>
+      </Form>
+      <Logout />
+    </>
   );
 };

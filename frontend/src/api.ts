@@ -26,7 +26,14 @@ export const getToken = () => {
 };
 
 export const setToken = (token: string) => {
-  axiosInstance.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+  axiosInstance = axios.create({
+    baseURL,
+    headers: {
+      Authorization: `Bearer ${token}`,
+      "Access-Control-Allow-Origin": "*",
+      "Content-Type": "application/json",
+    },
+  });
   localStorage.setItem("token", token);
 };
 
@@ -40,7 +47,7 @@ export const getAuthorizationHeader = () => {
   return `Bearer ${getToken()}`;
 };
 
-export const axiosInstance = axios.create({
+export let axiosInstance = axios.create({
   baseURL,
   headers: {
     ...(getAuthorizationHeader()

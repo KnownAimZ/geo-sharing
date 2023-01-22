@@ -1,46 +1,38 @@
-import "./App.css";
-import { Logout } from "./feature/auth/logout";
-import { Login } from "./feature/auth/login";
-import React from "react";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { Register } from "./feature/auth/register";
-import { Profile } from "./feature/profile/profile";
+import { useEffect } from "react";
 import { Topbar } from "./feature/profile/topbar";
-import { Geotag } from "./feature/geotag/geotag";
+import { useAppSelector } from "./hooks";
+import {
+  BrowserRouter as Router,
+  useNavigate,
+  Routes,
+  Route,
+} from "react-router-dom";
+import { Geotags } from "./feature/geotags/geotags";
 import { UpdateGeotag } from "./feature/geotag/update-geotag";
+import { Profile } from "./feature/profile/profile";
+import { GeotagsNew } from "./feature/geotags/geotags-new";
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: (
-      <>
-        <Topbar />
-        <Geotag />
-        {/* <Profile /> */}
-        <Logout />
-      </>
-    ),
-  },
-  {
-    path: "/login",
-    element: <Login />,
-  },
-  {
-    path: "/register",
-    element: <Register />,
-  },
-  {
-    path: "/geotag/:id",
-    element: <UpdateGeotag />,
-  },
-]);
+export const App = () => {
+  const user = useAppSelector((state) => state.user.user);
+  const navigate = useNavigate();
 
-function App() {
+  useEffect(() => {
+    if (!user) {
+      navigate("/login");
+    }
+  }, [user]);
+
   return (
-    <div className="App">
-      <RouterProvider router={router} />
+    <div>
+      <Topbar />
+      <div style={{ width: "100vw", marginTop: "75px" }}>
+        <Routes>
+          <Route path="geotags" element={<Geotags />} />
+          <Route path="geotags-new" element={<GeotagsNew />} />
+          <Route path="geotags/:id" element={<UpdateGeotag />} />
+          <Route path="profile" element={<Profile />} />
+        </Routes>
+      </div>
     </div>
   );
-}
-
-export default App;
+};
