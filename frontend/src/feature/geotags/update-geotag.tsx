@@ -1,7 +1,10 @@
+import { Wrapper } from "@googlemaps/react-wrapper";
 import { Button, Form, Input, notification } from "antd";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { axiosInstance, handleApiFormError } from "../../api";
+import { Map } from "../map/map";
+import { Marker } from "../map/marker";
 
 const { useForm } = Form;
 
@@ -35,6 +38,8 @@ export const UpdateGeotag = () => {
       requestData
     );
 
+    setGeotag({ ...geotag, ...requestData });
+
     notification.success({
       message: `${requestData.name} successfully updated!`,
     });
@@ -64,12 +69,27 @@ export const UpdateGeotag = () => {
 
   return (
     <div className="geotags-new">
+      <Wrapper>
+        <Map
+          center={{ lat: +geotag.location.lat, lng: +geotag.location.lng }}
+          zoom={8}
+          style={{ flexGrow: "1", height: "500px", width: "500px" }}
+        >
+          <Marker
+            position={{
+              lat: +geotag.location.lat,
+              lng: +geotag.location.lng,
+            }}
+          />
+        </Map>
+      </Wrapper>
       <Form
         name="basic"
         initialValues={{ remember: true }}
         onFinish={onFinish}
         autoComplete="off"
         form={form}
+        className="geotags-new__form"
       >
         <Form.Item
           label="Latitude"

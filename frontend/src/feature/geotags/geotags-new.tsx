@@ -45,6 +45,23 @@ export const GeotagsNew = () => {
     setCenter(m.getCenter()!.toJSON());
   };
 
+  const setCurrentGeolocation = () => {
+    navigator.geolocation.getCurrentPosition(
+      (position: GeolocationPosition) => {
+        const pos = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude,
+        };
+        setCenter({ ...pos });
+      },
+      () => {
+        notification.error({
+          message: "Geolocation error",
+        });
+      }
+    );
+  };
+
   useEffect(() => {
     form.setFieldsValue({ ...center });
   }, [center]);
@@ -106,12 +123,14 @@ export const GeotagsNew = () => {
         <Form.Item label="Description" name="description">
           <Input />
         </Form.Item>
-
-        <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-          <Button type="primary" htmlType="submit">
-            Submit
-          </Button>
-        </Form.Item>
+        <div className="geotags-new__buttons-row">
+          <Form.Item>
+            <Button type="primary" htmlType="submit">
+              Submit
+            </Button>
+          </Form.Item>
+          <Button onClick={setCurrentGeolocation}>Set current location</Button>
+        </div>
       </Form>
       <Link to={"/geotags"}>To geotags</Link>
     </div>

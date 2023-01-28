@@ -60,13 +60,13 @@ export const App = () => {
       </div>
       <div className="container">
         <Menu mode="inline" className="sidebar">
-          <Menu.Item>
+          <Menu.Item key="geotags">
             <Link to={"/geotags"}>Geotags</Link>
           </Menu.Item>
-          <Menu.Item>
+          <Menu.Item key="geotags-new">
             <Link to={"/geotags-new"}>New Geotag</Link>
           </Menu.Item>
-          <Menu.Item>
+          <Menu.Item key="profile">
             <Link to={"/profile"}>Profile</Link>
           </Menu.Item>
         </Menu>

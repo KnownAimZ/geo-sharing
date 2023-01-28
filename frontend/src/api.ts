@@ -71,7 +71,6 @@ export const handleApiFormError = async (
       return;
     }
     const _data = error.response?.data as ErrorResponse;
-    console.log(_data);
     const errorNames = Object.keys(_data.errors);
     if (
       !errorNames.length ||
