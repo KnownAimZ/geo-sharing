@@ -5,7 +5,7 @@ namespace App\Http\Resources;
 use App\Models\User;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class FriendsResource extends JsonResource
+class SubscriptionResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -14,13 +14,12 @@ class FriendsResource extends JsonResource
      */
     public function toArray($request): array
     {
-        $user = User::find($request->friend_id);
+        $user = User::find($this->subscribed_id);
 
         return [
-            'id' => $user?->id,
+            'user_id' => $this->id,
             'first_name' => $user?->first_name,
             'last_name' => $user?->last_name,
-            'email' => $user?->email,
         ];
     }
 }

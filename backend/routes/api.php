@@ -15,4 +15,4 @@ use Illuminate\Http\Request;
 
 require __DIR__.'/api/auth.php';
 require __DIR__.'/api/geotags.php';
-require __DIR__.'/api/friends.php';
+require __DIR__.'/api/subscriptions.php';
