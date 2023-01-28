@@ -13,13 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('friend_requests', function (Blueprint $table) {
+        Schema::create('user_subscriptions', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id')->index();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->unsignedBigInteger('friend_id')->index();
-            $table->foreign('friend_id')->references('id')->on('users')->onDelete('cascade');
-            $table->string('status')->default('waiting')->nullable(false);
+            $table->unsignedBigInteger('subscribed_id')->index();
+            $table->foreign('subscribed_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -31,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('friend_requests');
+        Schema::dropIfExists('user_subscriptions');
     }
 };
