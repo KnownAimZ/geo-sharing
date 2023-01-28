@@ -3,7 +3,7 @@
 
 use App\Http\Controllers\SubscriptionController;
 
-Route::group(['as' => 'api.subscriptions', 'prefix' => 'subscriptions', 'middleware' => 'auth:sanctum'], function () {
+Route::group(['as' => 'api.subscription', 'prefix' => 'subscription', 'middleware' => 'auth:sanctum'], function () {
     Route::get('subscriptions', [SubscriptionController::class, '__invoke'])
         ->name('subscriptions');
 
