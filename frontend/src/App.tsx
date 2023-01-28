@@ -6,6 +6,7 @@ import {
   Routes,
   Route,
   Link,
+  Navigate,
 } from "react-router-dom";
 import { Geotags } from "./feature/geotags/geotags";
 import { UpdateGeotag } from "./feature/geotag/update-geotag";
@@ -75,6 +76,7 @@ export const App = () => {
             <Route path="geotags-new" element={<GeotagsNew />} />
             <Route path="geotags/:id" element={<UpdateGeotag />} />
             <Route path="profile" element={<Profile />} />
+            <Route path="" element={<Navigate to="/geotags" />} />
           </Routes>
         </div>
       </div>

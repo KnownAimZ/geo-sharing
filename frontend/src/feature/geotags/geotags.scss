@@ -5,6 +5,33 @@
   padding: 16px;
 }
 
+.geotags-new {
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+
+  &__form {
+    margin-top: 12px;
+  }
+
+  &__map-pulsing-point {
+    z-index: 10;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 72px;
+    height: 72px;
+    margin-left: -36px;
+    margin-top: -36px;
+  }
+
+  .ant-input-number {
+    width: 100%;
+  }
+}
+
 .geotag-list {
   display: flex;
   flex-direction: column;
