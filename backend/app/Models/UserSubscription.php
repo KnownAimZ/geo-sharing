@@ -6,19 +6,16 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class FriendRequests extends Model
+class UserSubscription extends Model
 {
     use HasFactory;
 
     protected $fillable = [
         'user_id',
-        'friend_id',
-        'status',
+        'subscribed_id',
     ];
 
-    protected $table = 'friend_requests';
-
-    public $timestamps = true;
+    protected $table = 'user_subscriptions';
 
     public function user(): BelongsTo
     {
