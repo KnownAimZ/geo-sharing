@@ -9,7 +9,7 @@ import {
   Navigate,
 } from "react-router-dom";
 import { Geotags } from "./feature/geotags/geotags";
-import { UpdateGeotag } from "./feature/geotag/update-geotag";
+import { UpdateGeotag } from "./feature/geotags/update-geotag";
 import { Profile } from "./feature/profile/profile";
 import { GeotagsNew } from "./feature/geotags/geotags-new";
 import { Avatar, Menu, Space, Typography } from "antd";

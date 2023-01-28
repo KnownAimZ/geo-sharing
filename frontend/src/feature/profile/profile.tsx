@@ -5,6 +5,7 @@ import { useAppDispatch } from "../../hooks";
 import { setUser, User } from "../auth/authSlice";
 import { Logout } from "../auth/logout";
 const { useForm } = Form;
+import "./profile.scss";
 
 export const Profile = () => {
   const [form] = useForm();
@@ -42,7 +43,7 @@ export const Profile = () => {
   }, []);
 
   return (
-    <>
+    <div className="profile">
       <Form
         name="basic"
         initialValues={{ remember: true }}
@@ -92,6 +93,6 @@ export const Profile = () => {
         </Form.Item>
       </Form>
       <Logout />
-    </>
+    </div>
   );
 };

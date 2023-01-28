@@ -63,46 +63,48 @@ export const UpdateGeotag = () => {
   if (!geotag) return null;
 
   return (
-    <Form
-      name="basic"
-      initialValues={{ remember: true }}
-      onFinish={onFinish}
-      autoComplete="off"
-      form={form}
-    >
-      <Form.Item
-        label="Latitude"
-        name="lat"
-        rules={[{ required: true, message: "Please input latitude!" }]}
+    <div className="geotags-new">
+      <Form
+        name="basic"
+        initialValues={{ remember: true }}
+        onFinish={onFinish}
+        autoComplete="off"
+        form={form}
       >
-        <Input />
-      </Form.Item>
+        <Form.Item
+          label="Latitude"
+          name="lat"
+          rules={[{ required: true, message: "Please input latitude!" }]}
+        >
+          <Input />
+        </Form.Item>
 
-      <Form.Item
-        label="Longtitude"
-        name="lng"
-        rules={[{ required: true, message: "Please input longtitude!" }]}
-      >
-        <Input />
-      </Form.Item>
+        <Form.Item
+          label="Longtitude"
+          name="lng"
+          rules={[{ required: true, message: "Please input longtitude!" }]}
+        >
+          <Input />
+        </Form.Item>
 
-      <Form.Item
-        label="Name"
-        name="name"
-        rules={[{ required: true, message: "Please input name!" }]}
-      >
-        <Input />
-      </Form.Item>
+        <Form.Item
+          label="Name"
+          name="name"
+          rules={[{ required: true, message: "Please input name!" }]}
+        >
+          <Input />
+        </Form.Item>
 
-      <Form.Item label="Description" name="description">
-        <Input />
-      </Form.Item>
+        <Form.Item label="Description" name="description">
+          <Input />
+        </Form.Item>
 
-      <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-        <Button type="primary" htmlType="submit">
-          Submit
-        </Button>
-      </Form.Item>
-    </Form>
+        <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
+          <Button type="primary" htmlType="submit">
+            Submit
+          </Button>
+        </Form.Item>
+      </Form>
+    </div>
   );
 };
