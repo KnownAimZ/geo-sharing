@@ -4,20 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0ebe6c50-3b78-41da-af00-fda54472992f" name="Changes" comment="Added request.">
-      <change afterPath="$PROJECT_DIR$/backend/routes/api/subscriptions.php" afterDir="false" />
+    <list default="true" id="0ebe6c50-3b78-41da-af00-fda54472992f" name="Changes" comment="Changed: friend list for subscriptions for user.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/FriendController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/SubscriptionController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/FriendRequestController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Http/Resources/FriendRequestsResource.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Http/Resources/FriendsResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Resources/SubscriptionResource.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Models/FriendList.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Models/FriendRequests.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/migrations/2022_12_26_174005_create_friend_lists_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/migrations/2022_12_26_180629_create_friend_requests_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/api.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/routes/api/friends.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/backend/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -218,7 +209,7 @@
       <workItem from="1671996342843" duration="1006000" />
       <workItem from="1672044232700" duration="3809000" />
       <workItem from="1673186138837" duration="9162000" />
-      <workItem from="1674897312070" duration="3139000" />
+      <workItem from="1674897312070" duration="5254000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1670074320573</created>
@@ -388,7 +379,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673196213539</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Changed: friend list for subscriptions for user.">
+      <created>1674922649636</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1674922649636</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -422,6 +420,7 @@
     <MESSAGE value="1" />
     <MESSAGE value="123" />
     <MESSAGE value="Added request." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added request." />
+    <MESSAGE value="Changed: friend list for subscriptions for user." />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed: friend list for subscriptions for user." />
   </component>
 </project>
