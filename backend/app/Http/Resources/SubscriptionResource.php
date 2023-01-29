@@ -17,7 +17,7 @@ class SubscriptionResource extends JsonResource
         $user = User::find($this->subscribed_id);
 
         return [
-            'user_id' => $this->id,
+            'user_id' => $user->id,
             'first_name' => $user?->first_name,
             'last_name' => $user?->last_name,
         ];

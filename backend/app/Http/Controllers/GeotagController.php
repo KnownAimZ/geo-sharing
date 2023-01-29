@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\GeotagCreated;
 use App\Http\Controllers\Api\ApiController;
 use App\Http\Requests\DestroyGeoTagRequest;
 use App\Http\Requests\GeoTagRequest;
@@ -51,12 +52,13 @@ class GeotagController extends ApiController
         /** @var User $user */
         $user = $request->user();
 
-        $user->geoTags()->create([
+        $geotag = $user->geoTags()->create([
             'name' => $request->name,
             'description' => $request->description,
             'location' => json_encode($request->location, JSON_FORCE_OBJECT),
         ]);
 
+        event(new GeotagCreated($geotag));
         return $this->response([
             'message' => __('Geotag was created successfully.'),
         ]);
