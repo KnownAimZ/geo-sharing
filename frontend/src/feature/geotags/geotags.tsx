@@ -22,8 +22,15 @@ export const Geotags = () => {
     setGeotags(data.geotags);
   };
 
+  const findUser = async () => {
+    const { data } = await axiosInstance.post("/subscription/find-user", {
+      first_name: "Nikita123",
+    });
+  };
+
   useEffect(() => {
     loadGeotags();
+    // findUser();
   }, []);
 
   const onIdle = (m: google.maps.Map) => {

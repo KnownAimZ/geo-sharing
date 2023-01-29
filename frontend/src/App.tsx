@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useAppSelector } from "./hooks";
+import { useAppDispatch, useAppSelector } from "./hooks";
 import {
   BrowserRouter as Router,
   useNavigate,
@@ -16,12 +16,16 @@ import { Avatar, Menu, Space, Typography } from "antd";
 import Title from "antd/es/typography/Title";
 import { User } from "./feature/auth/authSlice";
 import "./App.scss";
+import { axiosInstance } from "./api";
+import { setSubscriptions } from "./feature/subscripitions/subscripitionsSlice";
+import { MySubscriptions } from "./feature/subscripitions/my-subscriptions";
 
 const { Text } = Typography;
 
 export const App = () => {
   const user = useAppSelector((state) => state.user.user);
   const navigate = useNavigate();
+  const dispatch = useAppDispatch();
 
   const getFirstLetters = (user: User | null) => {
     if (!user || !user.first_name || !user.last_name) return;
@@ -33,9 +37,16 @@ export const App = () => {
     return `${user.first_name} ${user.last_name}`;
   };
 
+  const loadSubscriptions = async () => {
+    const { data } = await axiosInstance.get("/subscription/subscriptions");
+    dispatch(setSubscriptions(data.subscriptions));
+  };
+
   useEffect(() => {
     if (!user) {
       navigate("/login");
+    } else {
+      loadSubscriptions();
     }
   }, [user]);
 
@@ -69,6 +80,9 @@ export const App = () => {
           <Menu.Item key="profile">
             <Link to={"/profile"}>Profile</Link>
           </Menu.Item>
+          <Menu.Item key="subscriptions">
+            <Link to={"/subscriptions"}>My Subscriptions</Link>
+          </Menu.Item>
         </Menu>
         <div className="container__content">
           <Routes>
@@ -76,6 +90,7 @@ export const App = () => {
             <Route path="geotags-new" element={<GeotagsNew />} />
             <Route path="geotags/:id" element={<UpdateGeotag />} />
             <Route path="profile" element={<Profile />} />
+            <Route path="subscriptions" element={<MySubscriptions />} />
             <Route path="" element={<Navigate to="/geotags" />} />
           </Routes>
         </div>
