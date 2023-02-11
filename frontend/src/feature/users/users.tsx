@@ -1,7 +1,7 @@
-import { Button, Input, Typography } from "antd";
+import { Button, Input, notification, Typography } from "antd";
 import { useEffect, useState } from "react";
 import { axiosInstance } from "../../api";
-import { useAppSelector } from "../../hooks";
+import { useAppDispatch, useAppSelector } from "../../hooks";
 import {
   addNewSubscription,
   removeSubscriptionById,
@@ -13,6 +13,7 @@ const { Text } = Typography;
 export const Users = () => {
   const [users, setUsers] = useState<any>([]);
   const [email, setEmail] = useState("");
+  const dispatch = useAppDispatch();
   const currentUser = useAppSelector((state) => state.user.user);
   const subscriptions = useAppSelector(
     (state) => state.subsciptions.subscriptions
@@ -29,19 +30,25 @@ export const Users = () => {
     setUsers(data.users);
   };
 
-  const onUnsubscribeClick = async (id: number) => {
+  const onUnsubscribeClick = async (subscription: Subscription) => {
     const { data } = await axiosInstance.post(
       "/subscription/unsubscribe-user",
-      { user_id: id }
+      { user_id: subscription.user_id }
     );
-    removeSubscriptionById(id);
+    dispatch(removeSubscriptionById(subscription.user_id));
+    notification.success({
+      message: `Successfully unsubscribed from ${subscription.email}`,
+    });
   };
 
-  const onSubscribeClick = async (user: Subscription) => {
+  const onSubscribeClick = async (subscription: Subscription) => {
     const { data } = await axiosInstance.post("/subscription/subscribe-user", {
-      user_id: user.user_id,
+      user_id: subscription.user_id,
     });
-    addNewSubscription(user);
+    dispatch(addNewSubscription(subscription));
+    notification.success({
+      message: `Successfully subscribed to ${subscription.email}`,
+    });
   };
 
   useEffect(() => {
@@ -67,7 +74,7 @@ export const Users = () => {
               <Text strong>{user.email}</Text>
             </div>
             {isUserSubscribed(user) ? (
-              <Button danger onClick={() => onUnsubscribeClick(user.user_id)}>
+              <Button danger onClick={() => onUnsubscribeClick(user)}>
                 Unsubscribe
               </Button>
             ) : (

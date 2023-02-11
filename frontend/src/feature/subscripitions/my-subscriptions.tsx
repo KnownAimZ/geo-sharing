@@ -1,21 +1,25 @@
-import { Button, Empty, Typography } from "antd";
+import { Button, Empty, notification, Typography } from "antd";
 import { axiosInstance } from "../../api";
-import { useAppSelector } from "../../hooks";
+import { useAppDispatch, useAppSelector } from "../../hooks";
 import "./my-subscriptions.scss";
-import { removeSubscriptionById } from "./subscripitionsSlice";
+import { removeSubscriptionById, Subscription } from "./subscripitionsSlice";
 const { Text } = Typography;
 
 export const MySubscriptions = () => {
+  const dispatch = useAppDispatch();
   const subscriptions = useAppSelector(
     (state) => state.subsciptions.subscriptions
   );
 
-  const onUnsubscribeClick = async (id: number) => {
+  const onUnsubscribeClick = async (subscription: Subscription) => {
     const { data } = await axiosInstance.post(
       "/subscription/unsubscribe-user",
-      { user_id: id }
+      { user_id: subscription.user_id }
     );
-    removeSubscriptionById(id);
+    dispatch(removeSubscriptionById(subscription.user_id));
+    notification.success({
+      message: `Successfully unsubscribed from ${subscription.email}`,
+    });
   };
 
   return (
@@ -29,10 +33,7 @@ export const MySubscriptions = () => {
               </Text>
               <Text strong>{subscription.email}</Text>
             </div>
-            <Button
-              danger
-              onClick={() => onUnsubscribeClick(subscription.user_id)}
-            >
+            <Button danger onClick={() => onUnsubscribeClick(subscription)}>
               Unsubscribe
             </Button>
           </div>
