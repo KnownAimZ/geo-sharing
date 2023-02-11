@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0ebe6c50-3b78-41da-af00-fda54472992f" name="Changes" comment="Small change.">
-      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/SubscriptionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/SubscriptionController.php" afterDir="false" />
+    <list default="true" id="0ebe6c50-3b78-41da-af00-fda54472992f" name="Changes" comment="multiselect.">
+      <change beforePath="$PROJECT_DIR$/backend/app/Http/Resources/SubscriptionResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Resources/SubscriptionResource.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -209,7 +209,7 @@
       <workItem from="1674897312070" duration="5328000" />
       <workItem from="1674934217406" duration="2549000" />
       <workItem from="1675073121453" duration="40000" />
-      <workItem from="1676120942440" duration="750000" />
+      <workItem from="1676120942440" duration="1006000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1670074320573</created>
@@ -428,7 +428,21 @@
       <option name="project" value="LOCAL" />
       <updated>1676121488071</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="multiselect.">
+      <created>1676121704768</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1676121704768</updated>
+    </task>
+    <task id="LOCAL-00033" summary="multiselect.">
+      <created>1676121899170</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1676121899170</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -468,6 +482,7 @@
     <MESSAGE value="Added: geotag notification." />
     <MESSAGE value="Changed select." />
     <MESSAGE value="Small change." />
-    <option name="LAST_COMMIT_MESSAGE" value="Small change." />
+    <MESSAGE value="multiselect." />
+    <option name="LAST_COMMIT_MESSAGE" value="multiselect." />
   </component>
 </project>
