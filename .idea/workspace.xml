@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0ebe6c50-3b78-41da-af00-fda54472992f" name="Changes" comment="multiselect.">
-      <change beforePath="$PROJECT_DIR$/backend/app/Http/Resources/SubscriptionResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Resources/SubscriptionResource.php" afterDir="false" />
+    <list default="true" id="0ebe6c50-3b78-41da-af00-fda54472992f" name="Changes" comment="add email.">
+      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/SubscriptionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/SubscriptionController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -209,7 +209,7 @@
       <workItem from="1674897312070" duration="5328000" />
       <workItem from="1674934217406" duration="2549000" />
       <workItem from="1675073121453" duration="40000" />
-      <workItem from="1676120942440" duration="1006000" />
+      <workItem from="1676120942440" duration="1443000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1670074320573</created>
@@ -442,7 +442,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676121899170</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="add email.">
+      <created>1676121961798</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1676121961798</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -483,6 +490,7 @@
     <MESSAGE value="Changed select." />
     <MESSAGE value="Small change." />
     <MESSAGE value="multiselect." />
-    <option name="LAST_COMMIT_MESSAGE" value="multiselect." />
+    <MESSAGE value="add email." />
+    <option name="LAST_COMMIT_MESSAGE" value="add email." />
   </component>
 </project>
