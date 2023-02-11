@@ -15,6 +15,6 @@ Route::group(['as' => 'api.users', 'prefix' => 'users', 'middleware' => 'auth:sa
     Route::put('update-geotag', [GeotagController::class, 'update'])
         ->name('update-geotag');
 
-    Route::delete('delete-geotag', [GeotagController::class, 'destroy'])
+    Route::post('delete-geotag', [GeotagController::class, 'destroy'])
         ->name('delete-geotag');
 });
