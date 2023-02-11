@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0ebe6c50-3b78-41da-af00-fda54472992f" name="Changes" comment="Added: mailgun to send email." />
+    <list default="true" id="0ebe6c50-3b78-41da-af00-fda54472992f" name="Changes" comment="changed route">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/GeotagController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/GeotagController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Http/Resources/SubscriptionResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Resources/SubscriptionResource.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Providers/EventServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Providers/EventServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/web.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -205,6 +211,7 @@
       <workItem from="1672044232700" duration="3809000" />
       <workItem from="1673186138837" duration="9162000" />
       <workItem from="1674897312070" duration="5328000" />
+      <workItem from="1674934217406" duration="2482000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1670074320573</created>
@@ -388,7 +395,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674928167831</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="changed route">
+      <created>1674934261710</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1674934261710</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -424,6 +438,7 @@
     <MESSAGE value="Added request." />
     <MESSAGE value="Changed: friend list for subscriptions for user." />
     <MESSAGE value="Added: mailgun to send email." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added: mailgun to send email." />
+    <MESSAGE value="changed route" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed route" />
   </component>
 </project>
