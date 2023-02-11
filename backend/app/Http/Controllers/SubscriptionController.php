@@ -72,7 +72,7 @@ class SubscriptionController extends ApiController
     {
         $user = $request->user();
 
-        if (! $user->userSubscription()->where('subscribed_id', $request->user_id)->exists) {
+        if (! $user->userSubscription()->where('subscribed_id', $request->user_id)->exists()) {
             return $this->response(['error' => 'You haven`t subscribed for this user.']);
         }
 

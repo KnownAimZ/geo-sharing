@@ -34,7 +34,7 @@ class GeotagTrigger implements ShouldQueue
                 'posted_user' => $user->first_name.' '.$user->last_name,
                 'geotag_name' => $event->geotag->name,
                 'geotag_desc' => $event->geotag->description,
-                'geotag_lon' => $location->lon,
+                'geotag_lon' => $location->lng,
                 'geotag_lat' => $location->lat,
             ]));
         }
