@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0ebe6c50-3b78-41da-af00-fda54472992f" name="Changes" comment="make as massive">
+    <list default="true" id="0ebe6c50-3b78-41da-af00-fda54472992f" name="Changes" comment="change type">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Http/Requests/FindSubscriptionUserRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Requests/FindSubscriptionUserRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/routes/api/subscriptions.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/api/subscriptions.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -211,7 +211,7 @@
       <workItem from="1674934217406" duration="2549000" />
       <workItem from="1675073121453" duration="40000" />
       <workItem from="1676120942440" duration="2280000" />
-      <workItem from="1676126408773" duration="9000" />
+      <workItem from="1676126408773" duration="759000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1670074320573</created>
@@ -458,7 +458,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676122399191</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="change type">
+      <created>1676126426818</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1676126426818</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -501,6 +508,7 @@
     <MESSAGE value="multiselect." />
     <MESSAGE value="add email." />
     <MESSAGE value="make as massive" />
-    <option name="LAST_COMMIT_MESSAGE" value="make as massive" />
+    <MESSAGE value="change type" />
+    <option name="LAST_COMMIT_MESSAGE" value="change type" />
   </component>
 </project>
