@@ -19,7 +19,7 @@ class GeotagTrigger implements ShouldQueue
      */
     public function handle(GeotagCreated $event)
     {
-        $user = $event->geotag->user();
+        $user = $event->geotag->user()->first();
 
         $subscribedUsers = UserSubscription::where('subscribed_id', $user->id)->get();
 
