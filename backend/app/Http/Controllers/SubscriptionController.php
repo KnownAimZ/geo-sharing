@@ -38,11 +38,11 @@ class SubscriptionController extends ApiController
                 fn ($q) => $q->where('first_name', $request->get('first_name'))
             )->when($request->get('last_name'),
                 fn ($q) => $q->where('last_name', $request->get('last_name'))
-            )->first();
+            )->get();
 
         return $user
             ? $this->response((new UserProfileRecourse($user))->resolve())
-            : $this->response(['message' => 'A tenant not found.']);
+            : $this->response(['message' => 'A user not found.']);
     }
 
     /**
