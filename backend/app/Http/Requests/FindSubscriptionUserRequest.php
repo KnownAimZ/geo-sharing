@@ -26,7 +26,7 @@ class FindSubscriptionUserRequest extends FormRequest
         return [
             'first_name' => 'sometimes|string|nullable',
             'last_name' => 'sometimes|string|nullable',
-            'email' => 'sometimes|email|nullable',
+            'email' => 'sometimes|string|nullable',
         ];
     }
 }
