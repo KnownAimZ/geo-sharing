@@ -13,6 +13,6 @@ Route::group(['as' => 'api.subscription', 'prefix' => 'subscription', 'middlewar
     Route::post('subscribe-user', [SubscriptionController::class, 'store'])
         ->name('subscribe-user');
 
-    Route::post('unsubscribe-user', [SubscriptionController::class, 'delete'])
+    Route::post('unsubscribe-user', [SubscriptionController::class, 'destroy'])
         ->name('unsubscribe-user');
 });
