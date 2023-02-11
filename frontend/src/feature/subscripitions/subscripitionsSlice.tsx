@@ -4,6 +4,7 @@ export interface Subscription {
   first_name: string;
   last_name: string;
   user_id: number;
+  email: string;
 }
 
 export interface SubscriptionState {

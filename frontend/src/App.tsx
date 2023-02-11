@@ -19,6 +19,7 @@ import "./App.scss";
 import { axiosInstance } from "./api";
 import { setSubscriptions } from "./feature/subscripitions/subscripitionsSlice";
 import { MySubscriptions } from "./feature/subscripitions/my-subscriptions";
+import { Users } from "./feature/users/users";
 
 const { Text } = Typography;
 
@@ -87,6 +88,9 @@ export const App = () => {
           <Menu.Item key="subscriptions">
             <Link to={"/subscriptions"}>My Subscriptions</Link>
           </Menu.Item>
+          <Menu.Item key="users">
+            <Link to={"/users"}>Find friend</Link>
+          </Menu.Item>
         </Menu>
         <div className="container__content">
           <Routes>
@@ -95,6 +99,7 @@ export const App = () => {
             <Route path="geotags/:id" element={<UpdateGeotag />} />
             <Route path="profile" element={<Profile />} />
             <Route path="subscriptions" element={<MySubscriptions />} />
+            <Route path="users" element={<Users />} />
             <Route path="" element={<Navigate to="/geotags" />} />
           </Routes>
         </div>

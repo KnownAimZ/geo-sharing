@@ -12,7 +12,7 @@ export const MySubscriptions = () => {
 
   const onUnsubscribeClick = async (id: number) => {
     const { data } = await axiosInstance.post(
-      "/subscripiton/unsubscribe-user",
+      "/subscription/unsubscribe-user",
       { user_id: id }
     );
     removeSubscriptionById(id);
@@ -22,10 +22,12 @@ export const MySubscriptions = () => {
     <div className="my-subscriptions">
       {subscriptions.length ? (
         subscriptions.map((subscription) => (
-          <div className="subscription-block" key={subscription.user_id}>
-            <div>
-              <Text>{subscription.first_name}</Text>
-              <Text>{subscription.last_name}</Text>
+          <div className="my-subscriptions__item" key={subscription.user_id}>
+            <div className="my-subscriptions__item__block">
+              <Text>
+                {subscription.first_name} {subscription.last_name}
+              </Text>
+              <Text strong>{subscription.email}</Text>
             </div>
             <Button
               danger
