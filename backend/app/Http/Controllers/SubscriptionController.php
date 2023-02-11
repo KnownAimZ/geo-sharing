@@ -32,7 +32,7 @@ class SubscriptionController extends ApiController
      */
     public function show(FindSubscriptionUserRequest $request): JsonResponse
     {
-        $user = User::query()->when($request->get('email'),
+        $user = User::query()->where('id', '!=', $request->user()->id)->when($request->get('email'),
                 fn ($q) => $q->where('email', 'like', '%'.$request->get('email').'%')
             )->when($request->get('first_name'),
                 fn ($q) => $q->where('first_name', 'like', '%'.$request->get('first_name').'%')

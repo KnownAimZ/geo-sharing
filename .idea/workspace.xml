@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0ebe6c50-3b78-41da-af00-fda54472992f" name="Changes" comment="route">
+    <list default="true" id="0ebe6c50-3b78-41da-af00-fda54472992f" name="Changes" comment="Change.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/SubscriptionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/SubscriptionController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -211,7 +212,7 @@
       <workItem from="1674934217406" duration="2549000" />
       <workItem from="1675073121453" duration="40000" />
       <workItem from="1676120942440" duration="2280000" />
-      <workItem from="1676126408773" duration="1987000" />
+      <workItem from="1676126408773" duration="5202000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1670074320573</created>
@@ -493,7 +494,21 @@
       <option name="project" value="LOCAL" />
       <updated>1676132548544</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="small fix.">
+      <created>1676133452580</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1676133452580</updated>
+    </task>
+    <task id="LOCAL-00042" summary="Change.">
+      <created>1676133539089</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1676133539089</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -514,8 +529,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/backend" />
     </ignored-roots>
-    <MESSAGE value="first commit" />
-    <MESSAGE value="changes." />
     <MESSAGE value="change directory" />
     <MESSAGE value="Added: update user profile." />
     <MESSAGE value="commit" />
@@ -539,6 +552,8 @@
     <MESSAGE value="change route type" />
     <MESSAGE value="Small fixes." />
     <MESSAGE value="route" />
-    <option name="LAST_COMMIT_MESSAGE" value="route" />
+    <MESSAGE value="small fix." />
+    <MESSAGE value="Change." />
+    <option name="LAST_COMMIT_MESSAGE" value="Change." />
   </component>
 </project>
