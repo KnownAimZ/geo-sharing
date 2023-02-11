@@ -24,7 +24,7 @@ export const Geotags = () => {
 
   const findUser = async () => {
     const { data } = await axiosInstance.post("/subscription/find-user", {
-      first_name: "Nikita123",
+      first_name: "Nik",
     });
   };
 

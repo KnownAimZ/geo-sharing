@@ -42,7 +42,7 @@ export const App = () => {
     dispatch(setSubscriptions(data.subscriptions));
     const { data: _data } = await axiosInstance.post(
       "/subscription/find-user",
-      { first_name: "Nikita123" }
+      { first_name: "Nik" }
     );
   };
 

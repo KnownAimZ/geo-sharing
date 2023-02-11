@@ -1,5 +1,5 @@
 import { Wrapper } from "@googlemaps/react-wrapper";
-import { Button, Form, Input, notification, Typography } from "antd";
+import { Button, Form, Input, InputNumber, notification, Typography } from "antd";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { axiosInstance, handleApiFormError } from "../../api";
@@ -69,6 +69,7 @@ export const UpdateGeotag = () => {
       lng: geotag.location.lng,
     };
     form.setFieldsValue(_geotag);
+    setCenter({lat: +geotag.location.lat, lng: +geotag.location.lng})
   };
 
   useEffect(() => {
@@ -81,11 +82,16 @@ export const UpdateGeotag = () => {
     updateForm();
   }, [geotag]);
 
-  useEffect(() => {
+  useEffect(() => { 
     if (typeof lat === "number" && typeof lng === "number") {
       setCenter({ lat, lng });
     }
   }, [lat, lng]);
+
+  useEffect(() => {
+    form.setFieldsValue({ ...center });
+  }, [center]);
+
 
   if (!geotag) return null;
 
@@ -130,12 +136,13 @@ export const UpdateGeotag = () => {
           form={form}
           className="geotags-new__form"
         >
+        <div>
           <Form.Item
             label="Latitude"
             name="lat"
             rules={[{ required: true, message: "Please input latitude!" }]}
           >
-            <Input />
+            <InputNumber />
           </Form.Item>
 
           <Form.Item
@@ -143,8 +150,9 @@ export const UpdateGeotag = () => {
             name="lng"
             rules={[{ required: true, message: "Please input longtitude!" }]}
           >
-            <Input />
+            <InputNumber />
           </Form.Item>
+        </div>
 
           <Form.Item
             label="Name"
