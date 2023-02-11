@@ -41,7 +41,7 @@ class SubscriptionController extends ApiController
             )->get();
 
         return $user
-            ? $this->response((new UserProfileRecourse($user))->resolve())
+            ? $this->response(UserProfileRecourse::collection($user)->resolve())
             : $this->response(['message' => 'A user not found.']);
     }
 
