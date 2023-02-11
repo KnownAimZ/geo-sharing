@@ -40,6 +40,10 @@ export const App = () => {
   const loadSubscriptions = async () => {
     const { data } = await axiosInstance.get("/subscription/subscriptions");
     dispatch(setSubscriptions(data.subscriptions));
+    const { data: _data } = await axiosInstance.post(
+      "/subscription/find-user",
+      { first_name: "Nikita123" }
+    );
   };
 
   useEffect(() => {
