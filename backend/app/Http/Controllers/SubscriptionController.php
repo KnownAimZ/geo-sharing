@@ -42,7 +42,7 @@ class SubscriptionController extends ApiController
 
         return $user
             ? $this->response((new UserProfileRecourse($user))->resolve())
-            : $this->response(['message' => 'A tenant not found.']);
+            : $this->response(['message' => 'A user not found.']);
     }
 
     /**
