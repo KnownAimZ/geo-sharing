@@ -6,6 +6,7 @@ import { Wrapper } from "@googlemaps/react-wrapper";
 import "./geotags.scss";
 import { Typography } from "antd";
 import { Link } from "react-router-dom";
+import classNames from "classnames";
 const { Text } = Typography;
 
 export const Geotags = () => {
@@ -15,6 +16,8 @@ export const Geotags = () => {
     lat: 0,
     lng: 0,
   });
+
+  const [focusedItemId, setFocusedItemId] = useState<number | null>(null);
 
   const loadGeotags = async () => {
     const { data } = await axiosInstance.get("/users/geotags");
@@ -40,6 +43,7 @@ export const Geotags = () => {
 
   const focusOn = (geotag: any) => {
     setCenter({ lat: +geotag.location.lat, lng: +geotag.location.lng });
+    setFocusedItemId(geotag.geotag_id);
     setZoom(12);
   };
 
@@ -66,11 +70,20 @@ export const Geotags = () => {
         </Wrapper>
         <div className="geotag-list">
           {geotags.map((geotag: any) => (
-            <div key={geotag.geotag_id} className="geotag-list__item">
-              <Text strong>{geotag.name}</Text>
-              <Text>{geotag.description}</Text>
+            <div
+              key={geotag.geotag_id}
+              className={classNames({
+                "geotag-list__item": true,
+                "geotag-list__item--selected":
+                  geotag.geotag_id === focusedItemId,
+              })}
+              onClick={() => focusOn(geotag)}
+            >
+              <div className="geotag-list__item__block">
+                <Text strong>{geotag.name}</Text>
+                <Text>{geotag.description}</Text>
+              </div>
               <Link to={`/geotags/${geotag.geotag_id}`}>Edit</Link>
-              <button onClick={() => focusOn(geotag)}>Focus</button>
             </div>
           ))}
         </div>
