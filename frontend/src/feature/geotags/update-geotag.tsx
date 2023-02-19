@@ -8,7 +8,7 @@ import {
   Typography,
 } from "antd";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { axiosInstance, handleApiFormError } from "../../api";
 import { Map } from "../map/map";
 import { Marker } from "../map/marker";
@@ -28,6 +28,7 @@ export const UpdateGeotag = () => {
     lat: 0,
     lng: 0,
   });
+  const navigate = useNavigate();
 
   const loadGeotag = async () => {
     const { data } = await axiosInstance.get(
@@ -66,6 +67,16 @@ export const UpdateGeotag = () => {
     });
 
     setIsEditing(false);
+  };
+
+  const deleteGeotag = async (geotag_id: number) => {
+    const { data } = await axiosInstance.post(
+      `/users/delete-geotag?geotag_id=${geotag_id}`
+    );
+    notification.success({
+      message: `Geotag successfully deleted!`,
+    });
+    navigate("/geotags");
   };
 
   const updateForm = () => {
@@ -202,13 +213,22 @@ export const UpdateGeotag = () => {
             <Text strong>Longtitude</Text>
             <Text>{geotag.location.lng}</Text>
           </div>
-          <Button
-            type="primary"
-            onClick={() => setIsEditing(true)}
-            htmlType="button"
-          >
-            Edit
-          </Button>
+          <div className="geotags-new__buttons-row">
+            <Button
+              type="primary"
+              onClick={() => setIsEditing(true)}
+              htmlType="button"
+            >
+              Edit
+            </Button>
+            <Button
+              danger
+              htmlType="button"
+              onClick={() => deleteGeotag(geotag.geotag_id)}
+            >
+              Delete
+            </Button>
+          </div>
         </div>
       )}
     </div>

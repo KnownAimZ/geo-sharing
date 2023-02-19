@@ -4,7 +4,7 @@ import { Marker } from "../map/marker";
 import { Map } from "../map/map";
 import { Wrapper } from "@googlemaps/react-wrapper";
 import "./geotags.scss";
-import { Typography } from "antd";
+import { Empty, Typography } from "antd";
 import { Link } from "react-router-dom";
 import classNames from "classnames";
 const { Text } = Typography;
@@ -46,6 +46,14 @@ export const Geotags = () => {
     setFocusedItemId(geotag.geotag_id);
     setZoom(12);
   };
+
+  if (!geotags.length) {
+    return (
+      <Empty>
+        <Link to={"/geotags-new"}>Add first geotag</Link>
+      </Empty>
+    );
+  }
 
   return (
     <>
