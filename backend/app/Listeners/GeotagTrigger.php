@@ -3,6 +3,7 @@
 namespace App\Listeners;
 
 use App\Events\GeotagCreated;
+use App\Models\User;
 use App\Models\UserSubscription;
 use App\Notifications\GeotagNotification;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -29,9 +30,15 @@ class GeotagTrigger implements ShouldQueue
 
         $location = json_decode($event->geotag->location);
         foreach ($subscribedUsers as $item) {
-            Notification::route('mail', $item->email)->notify(new GeotagNotification([
-                'user_name' => $item->first_name.' '.$item->last_name,
-                'posted_user' => $user->first_name.' '.$user->last_name,
+            $subscribedUser = User::find($item->user_id);
+
+            if (!$subscribedUser) {
+                continue;
+            }
+
+            Notification::route('mail', $subscribedUser->email)->notify(new GeotagNotification([
+                'user_name' => $subscribedUser->first_name.' '.$subscribedUser->last_name,
+                'posted_user' => $subscribedUser->first_name.' '.$subscribedUser->last_name,
                 'geotag_name' => $event->geotag->name,
                 'geotag_desc' => $event->geotag->description,
                 'geotag_lon' => $location->lng,
