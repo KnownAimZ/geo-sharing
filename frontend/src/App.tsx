@@ -7,6 +7,7 @@ import {
   Route,
   Link,
   Navigate,
+  useLocation,
 } from "react-router-dom";
 import { Geotags } from "./feature/geotags/geotags";
 import { UpdateGeotag } from "./feature/geotags/update-geotag";
@@ -27,6 +28,7 @@ export const App = () => {
   const user = useAppSelector((state) => state.user.user);
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
+  const location = useLocation();
 
   const getFirstLetters = (user: User | null) => {
     if (!user || !user.first_name || !user.last_name) return;
@@ -47,6 +49,23 @@ export const App = () => {
     );
   };
 
+  const getPageName = () => {
+    switch (location.pathname) {
+      case "/geotags":
+        return "Geotags";
+      case "/geotags-new":
+        return "New Geotag";
+      case "/profile":
+        return "Profile";
+      case "/subscriptions":
+        return "Subscriptions";
+      case "/users":
+        return "Find Friend";
+      default:
+        return "App";
+    }
+  };
+
   useEffect(() => {
     if (!user) {
       navigate("/login");
@@ -58,9 +77,7 @@ export const App = () => {
   return (
     <div>
       <div className="topbar">
-        <Link to={"/geotags"}>
-          <Title level={2}>App</Title>
-        </Link>
+        <Title level={2}>{getPageName()}</Title>
 
         <div className="topbar__content">
           <Avatar shape="square" size={40}>
@@ -89,7 +106,7 @@ export const App = () => {
             <Link to={"/subscriptions"}>My Subscriptions</Link>
           </Menu.Item>
           <Menu.Item key="users">
-            <Link to={"/users"}>Find friend</Link>
+            <Link to={"/users"}>Find Friend</Link>
           </Menu.Item>
         </Menu>
         <div className="container__content">

@@ -54,7 +54,7 @@ export const Profile = () => {
         <Form.Item
           label="First name"
           name="first_name"
-          rules={[{ required: true, message: "Please input your username!" }]}
+          rules={[{ required: true, message: "Please input your first name!" }]}
         >
           <Input />
         </Form.Item>
@@ -62,7 +62,7 @@ export const Profile = () => {
         <Form.Item
           label="Last name"
           name="last_name"
-          rules={[{ required: true, message: "Please input your username!" }]}
+          rules={[{ required: true, message: "Please input your last name!" }]}
         >
           <Input />
         </Form.Item>
@@ -72,7 +72,7 @@ export const Profile = () => {
           name="email"
           rules={[
             { type: "email", message: "Plese enter valid email" },
-            { required: true, message: "Please input your username!" },
+            { required: true, message: "Please input your email!" },
           ]}
         >
           <Input />

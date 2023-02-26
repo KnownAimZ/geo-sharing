@@ -131,8 +131,8 @@ export const GeotagsNew = () => {
           </Form.Item>
           <Button onClick={setCurrentGeolocation}>Set current location</Button>
         </div>
+        <Link to={"/geotags"}>To geotags</Link>
       </Form>
-      <Link to={"/geotags"}>To geotags</Link>
     </div>
   );
 };

@@ -4,7 +4,7 @@ import { Marker } from "../map/marker";
 import { Map } from "../map/map";
 import { Wrapper } from "@googlemaps/react-wrapper";
 import "./geotags.scss";
-import { Empty, Typography } from "antd";
+import { Empty, Input, Typography } from "antd";
 import { Link } from "react-router-dom";
 import classNames from "classnames";
 const { Text } = Typography;
@@ -16,7 +16,7 @@ export const Geotags = () => {
     lat: 0,
     lng: 0,
   });
-
+  const [searchGeotag, setSearchGeotag] = useState<string | undefined>();
   const [focusedItemId, setFocusedItemId] = useState<number | null>(null);
 
   const loadGeotags = async () => {
@@ -25,15 +25,8 @@ export const Geotags = () => {
     setGeotags(data.geotags);
   };
 
-  const findUser = async () => {
-    const { data } = await axiosInstance.post("/subscription/find-user", {
-      first_name: "Nik",
-    });
-  };
-
   useEffect(() => {
     loadGeotags();
-    // findUser();
   }, []);
 
   const onIdle = (m: google.maps.Map) => {
@@ -45,6 +38,11 @@ export const Geotags = () => {
     setCenter({ lat: +geotag.location.lat, lng: +geotag.location.lng });
     setFocusedItemId(geotag.geotag_id);
     setZoom(12);
+  };
+
+  const filterBySearchName = (geotag: any) => {
+    if (!searchGeotag) return true;
+    return geotag.name.toLowerCase().includes(searchGeotag.toLowerCase());
   };
 
   if (!geotags.length) {
@@ -77,7 +75,13 @@ export const Geotags = () => {
           </Map>
         </Wrapper>
         <div className="geotag-list">
-          {geotags.map((geotag: any) => (
+          <Text>Find geotag by name:</Text>
+          <Input
+            placeholder="Find by name"
+            value={searchGeotag}
+            onChange={(event) => setSearchGeotag(event.target.value)}
+          />
+          {geotags.filter(filterBySearchName).map((geotag: any) => (
             <div
               key={geotag.geotag_id}
               className={classNames({

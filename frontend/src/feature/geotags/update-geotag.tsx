@@ -183,15 +183,15 @@ export const UpdateGeotag = () => {
             <Input />
           </Form.Item>
 
-          <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
+          <div className="geotags-new__buttons-row">
             <Button type="primary" htmlType="submit">
               Submit
             </Button>
-          </Form.Item>
 
-          <Button onClick={() => setIsEditing(false)} htmlType="button">
-            Cancel
-          </Button>
+            <Button onClick={() => setIsEditing(false)} htmlType="button">
+              Cancel
+            </Button>
+          </div>
         </Form>
       ) : (
         <div className="geotags-new__info">
