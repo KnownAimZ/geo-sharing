@@ -12,17 +12,20 @@ import {
 } from "react-router-dom";
 import { Login } from "./feature/auth/login";
 import { Register } from "./feature/auth/register";
+import { ThemeWrapper } from "./theme-wrapper";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   // <React.StrictMode>
   <Provider store={store}>
-    <Router>
-      <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/*" element={<App />} />
-      </Routes>
-    </Router>
+    <ThemeWrapper>
+      <Router>
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/*" element={<App />} />
+        </Routes>
+      </Router>
+    </ThemeWrapper>
   </Provider>
   // </React.StrictMode>
 );

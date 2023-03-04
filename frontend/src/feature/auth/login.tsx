@@ -6,6 +6,7 @@ import { useAppDispatch, useAppSelector } from "../../hooks";
 import React, { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "antd/es/form/Form";
+import { GSLabel } from "../../components/label";
 
 type TLogin = {
   email: string;
@@ -51,18 +52,16 @@ export const Login = () => {
   };
 
   return (
-    <div className="unauthorized-app">
+    <div className="full-screen-container">
       <Form
         name="basic"
-        labelCol={{ span: 8 }}
-        wrapperCol={{ span: 16 }}
         initialValues={{ remember: true }}
         onFinish={onFinish}
         autoComplete="off"
         form={form}
       >
         <Form.Item
-          label="Email"
+          label={<GSLabel>Email</GSLabel>}
           name="email"
           rules={[
             { type: "email", message: "Plese enter valid email" },
@@ -73,20 +72,28 @@ export const Login = () => {
         </Form.Item>
 
         <Form.Item
-          label="Password"
+          label={<GSLabel>Password</GSLabel>}
           name="password"
           rules={[{ required: true, message: "Please input your password!" }]}
         >
           <Input.Password prefix={<LockOutlined />} />
         </Form.Item>
 
-        <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-          <Button type="primary" htmlType="submit">
-            Submit
-          </Button>
-        </Form.Item>
+        <div className="flex w-full items-center justify-center">
+          <button
+            className="btn-primary mr-2"
+            type="submit"
+          >
+            Login
+          </button>
+          <Link
+            className="btn-secondary"
+            to={"/register"}
+          >
+            To Register
+          </Link>
+        </div>
       </Form>
-      <Link to={"/register"}>Register</Link>
     </div>
   );
 };

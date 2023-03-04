@@ -4,6 +4,7 @@ import React, { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { setUser, User } from "./authSlice";
 import { useAppDispatch, useAppSelector } from "../../hooks";
+import { GSLabel } from "../../components/label";
 
 const { useForm } = Form;
 
@@ -54,7 +55,7 @@ export const Register = () => {
   }, [user]);
 
   return (
-    <div className="unauthorized-app">
+    <div className="full-screen-container">
       <Form
         name="basic"
         initialValues={{ remember: true }}
@@ -63,7 +64,7 @@ export const Register = () => {
         form={form}
       >
         <Form.Item
-          label="First name"
+          label={<GSLabel>First name</GSLabel>}
           name="first_name"
           rules={[{ required: true, message: "Please input your first name!" }]}
         >
@@ -71,7 +72,7 @@ export const Register = () => {
         </Form.Item>
 
         <Form.Item
-          label="Last name"
+          label={<GSLabel>Last name</GSLabel>}
           name="last_name"
           rules={[{ required: true, message: "Please input your last name!" }]}
         >
@@ -79,7 +80,7 @@ export const Register = () => {
         </Form.Item>
 
         <Form.Item
-          label="Email"
+          label={<GSLabel>Email</GSLabel>}
           name="email"
           rules={[
             { type: "email", message: "Plese enter valid email" },
@@ -90,7 +91,7 @@ export const Register = () => {
         </Form.Item>
 
         <Form.Item
-          label="Password"
+          label={<GSLabel>Password</GSLabel>}
           name="password"
           rules={[{ required: true, message: "Please input your password!" }]}
         >
@@ -98,20 +99,28 @@ export const Register = () => {
         </Form.Item>
 
         <Form.Item
-          label="Confirm password"
+          label={<GSLabel>Confirm password</GSLabel>}
           name="password_confirmation"
           rules={[{ required: true, message: "Please input your password!" }]}
         >
           <Input.Password />
         </Form.Item>
 
-        <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-          <Button type="primary" htmlType="submit">
-            Submit
-          </Button>
-        </Form.Item>
+        <div className="flex w-full items-center justify-center">
+          <button
+            className="btn-primary mr-2"
+            type="submit"
+          >
+            Register
+          </button>
+          <Link
+            className="btn-secondary"
+            to={"/login"}
+          >
+            To Login
+          </Link>
+        </div>
       </Form>
-      <Link to={"/login"}>Login</Link>
     </div>
   );
 };
