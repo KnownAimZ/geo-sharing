@@ -1,4 +1,4 @@
-import { Button, Input, notification, Typography } from "antd";
+import { Input, notification, Typography } from "antd";
 import { useEffect, useState } from "react";
 import { axiosInstance } from "../../api";
 import { useAppDispatch, useAppSelector } from "../../hooks";
@@ -7,7 +7,6 @@ import {
   removeSubscriptionById,
   Subscription,
 } from "../subscripitions/subscripitionsSlice";
-import "./users.scss";
 const { Text } = Typography;
 
 export const Users = () => {
@@ -56,34 +55,46 @@ export const Users = () => {
   }, [email]);
 
   return (
-    <div className="users">
-      <Text>Find user by email:</Text>
-      <Input
-        placeholder="Find by email"
-        value={email}
-        onChange={(event) => setEmail(event.target.value)}
-      />
-      {users
-        .filter((_user: any) => _user.user_id !== currentUser?.user_id)
-        .map((user: any) => (
-          <div key={user.user_id} className="users__item">
-            <div className="users__item__block">
-              <Text>
-                {user.first_name} {user.last_name}
-              </Text>
-              <Text strong>{user.email}</Text>
+    <div className="content-container">
+      <div className="list w-full">
+        <Text className="default-text">Find user by email:</Text>
+        <Input
+          placeholder="Find by email"
+          className="custom-input"
+          value={email}
+          onChange={(event) => setEmail(event.target.value)}
+        />
+        {users
+          .filter((_user: any) => _user.user_id !== currentUser?.user_id)
+          .map((user: any) => (
+            <div key={user.user_id} className="list__item">
+              <div className="list__item__block">
+                <Text className="default-text">
+                  {user.first_name} {user.last_name}
+                </Text>
+                <Text className="default-text" strong>
+                  {user.email}
+                </Text>
+              </div>
+              {isUserSubscribed(user) ? (
+                <button
+                  className="btn-secondary"
+                  type="button"
+                  onClick={() => onUnsubscribeClick(user)}
+                >
+                  Unsubscribe
+                </button>
+              ) : (
+                <button
+                  className="btn-primary mr-2"
+                  onClick={() => onSubscribeClick(user)}
+                >
+                  Subscribe
+                </button>
+              )}
             </div>
-            {isUserSubscribed(user) ? (
-              <Button danger onClick={() => onUnsubscribeClick(user)}>
-                Unsubscribe
-              </Button>
-            ) : (
-              <Button type="primary" onClick={() => onSubscribeClick(user)}>
-                Subscribe
-              </Button>
-            )}
-          </div>
-        ))}
+          ))}
+      </div>
     </div>
   );
 };

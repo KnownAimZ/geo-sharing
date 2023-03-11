@@ -1,8 +1,7 @@
-import { Button, Empty, Input, notification, Typography } from "antd";
+import { Empty, Input, notification, Typography } from "antd";
 import { useState } from "react";
 import { axiosInstance } from "../../api";
 import { useAppDispatch, useAppSelector } from "../../hooks";
-import "./my-subscriptions.scss";
 import { removeSubscriptionById, Subscription } from "./subscripitionsSlice";
 const { Text } = Typography;
 
@@ -30,32 +29,41 @@ export const MySubscriptions = () => {
   };
 
   return (
-    <div className="my-subscriptions">
-      {subscriptions.length ? (
-        <>
-          <Text>Find user by email:</Text>
-          <Input
-            placeholder="Find by email"
-            value={searchUser}
-            onChange={(event) => setSearchUser(event.target.value)}
-          />
-          {subscriptions.filter(filterUsersByEmail).map((subscription) => (
-            <div className="my-subscriptions__item" key={subscription.user_id}>
-              <div className="my-subscriptions__item__block">
-                <Text>
-                  {subscription.first_name} {subscription.last_name}
-                </Text>
-                <Text strong>{subscription.email}</Text>
+    <div className="content-container">
+      <div className="list w-full">
+        {subscriptions.length ? (
+          <>
+            <Text className="default-text">Find user by email:</Text>
+            <Input
+              placeholder="Find by email"
+              className="custom-input"
+              value={searchUser}
+              onChange={(event) => setSearchUser(event.target.value)}
+            />
+            {subscriptions.filter(filterUsersByEmail).map((subscription) => (
+              <div className="list__item" key={subscription.user_id}>
+                <div className="list__item__block">
+                  <Text className="default-text">
+                    {subscription.first_name} {subscription.last_name}
+                  </Text>
+                  <Text className="default-text" strong>
+                    {subscription.email}
+                  </Text>
+                </div>
+                <button
+                  className="btn-secondary"
+                  type="button"
+                  onClick={() => onUnsubscribeClick(subscription)}
+                >
+                  Unsubscribe
+                </button>
               </div>
-              <Button danger onClick={() => onUnsubscribeClick(subscription)}>
-                Unsubscribe
-              </Button>
-            </div>
-          ))}
-        </>
-      ) : (
-        <Empty />
-      )}
+            ))}
+          </>
+        ) : (
+          <Empty />
+        )}
+      </div>
     </div>
   );
 };

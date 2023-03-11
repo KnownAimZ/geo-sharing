@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "./hooks";
 import {
   BrowserRouter as Router,
@@ -13,19 +13,20 @@ import { Geotags } from "./feature/geotags/geotags";
 import { UpdateGeotag } from "./feature/geotags/update-geotag";
 import { Profile } from "./feature/profile/profile";
 import { GeotagsNew } from "./feature/geotags/geotags-new";
-import { Avatar, Menu, Space, Typography } from "antd";
-import Title from "antd/es/typography/Title";
+import { Space, Typography } from "antd";
 import { User } from "./feature/auth/authSlice";
-import "./App.scss";
 import { axiosInstance } from "./api";
 import { setSubscriptions } from "./feature/subscripitions/subscripitionsSlice";
 import { MySubscriptions } from "./feature/subscripitions/my-subscriptions";
 import { Users } from "./feature/users/users";
+import { Sidebar } from "./sidebar";
+import { Menu } from "./menu";
 
 const { Text } = Typography;
 
 export const App = () => {
   const user = useAppSelector((state) => state.user.user);
+  const [isMenuOpened, setIsMenuOpened] = useState(false);
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const location = useLocation();
@@ -77,50 +78,51 @@ export const App = () => {
   return (
     <div>
       <div className="topbar">
-        <Title level={2}>{getPageName()}</Title>
+        <span className="hidden md:inline-block default-text text-2xl font-semibold">
+          {getPageName()}
+        </span>
+        <button
+          className="inline-block md:hidden default-text"
+          onClick={() => setIsMenuOpened((prev) => !prev)}
+        >
+          {isMenuOpened ? "Close" : "Open"} menu
+        </button>
 
-        <div className="topbar__content">
-          <Avatar shape="square" size={40}>
+        <div className="flex items-center gap-2">
+          <div className="default-text h-10 w-10 rounded-full ring-2 ring-black dark:ring-white flex items-center justify-center">
             {getFirstLetters(user)}
-          </Avatar>
-          <Space direction="vertical" size={0} align="start">
-            <Link to={"/profile"}>
-              <Text>{getFullName(user)}</Text>
+          </div>
+          <Space
+            className="hidden md:block"
+            direction="vertical"
+            size={0}
+            align="start"
+          >
+            <Link className="default-text" to={"/profile"}>
+              {getFullName(user)}
             </Link>
-            <Text>{user?.email}</Text>
+            <Text className="default-text">{user?.email}</Text>
           </Space>
         </div>
       </div>
-      <div className="container">
-        <Menu mode="inline" className="sidebar">
-          <Menu.Item key="geotags">
-            <Link to={"/geotags"}>Geotags</Link>
-          </Menu.Item>
-          <Menu.Item key="geotags-new">
-            <Link to={"/geotags-new"}>New Geotag</Link>
-          </Menu.Item>
-          <Menu.Item key="profile">
-            <Link to={"/profile"}>Profile</Link>
-          </Menu.Item>
-          <Menu.Item key="subscriptions">
-            <Link to={"/subscriptions"}>My Subscriptions</Link>
-          </Menu.Item>
-          <Menu.Item key="users">
-            <Link to={"/users"}>Find Friend</Link>
-          </Menu.Item>
-        </Menu>
-        <div className="container__content">
-          <Routes>
-            <Route path="geotags" element={<Geotags />} />
-            <Route path="geotags-new" element={<GeotagsNew />} />
-            <Route path="geotags/:id" element={<UpdateGeotag />} />
-            <Route path="profile" element={<Profile />} />
-            <Route path="subscriptions" element={<MySubscriptions />} />
-            <Route path="users" element={<Users />} />
-            <Route path="" element={<Navigate to="/geotags" />} />
-          </Routes>
+      {isMenuOpened ? (
+        <Menu onClick={() => setIsMenuOpened(false)} />
+      ) : (
+        <div className="app-container">
+          <Sidebar />
+          <div className="p-2 md:p-4 w-full">
+            <Routes>
+              <Route path="geotags" element={<Geotags />} />
+              <Route path="geotags-new" element={<GeotagsNew />} />
+              <Route path="geotags/:id" element={<UpdateGeotag />} />
+              <Route path="profile" element={<Profile />} />
+              <Route path="subscriptions" element={<MySubscriptions />} />
+              <Route path="users" element={<Users />} />
+              <Route path="" element={<Navigate to="/geotags" />} />
+            </Routes>
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };

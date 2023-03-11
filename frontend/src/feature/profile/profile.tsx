@@ -1,11 +1,11 @@
-import { Button, Form, Input, notification } from "antd";
+import { Form, Input, notification } from "antd";
 import React, { useEffect } from "react";
 import { axiosInstance, handleApiFormError } from "../../api";
+import { GSLabel } from "../../components/label";
 import { useAppDispatch } from "../../hooks";
 import { setUser, User } from "../auth/authSlice";
 import { Logout } from "../auth/logout";
 const { useForm } = Form;
-import "./profile.scss";
 
 export const Profile = () => {
   const [form] = useForm();
@@ -43,7 +43,7 @@ export const Profile = () => {
   }, []);
 
   return (
-    <div className="profile">
+    <div className="content-container">
       <Form
         name="basic"
         initialValues={{ remember: true }}
@@ -52,47 +52,47 @@ export const Profile = () => {
         form={form}
       >
         <Form.Item
-          label="First name"
+          label={<GSLabel>First name</GSLabel>}
           name="first_name"
           rules={[{ required: true, message: "Please input your first name!" }]}
         >
-          <Input />
+          <Input className="custom-input" />
         </Form.Item>
 
         <Form.Item
-          label="Last name"
+          label={<GSLabel>Last name</GSLabel>}
           name="last_name"
           rules={[{ required: true, message: "Please input your last name!" }]}
         >
-          <Input />
+          <Input className="custom-input" />
         </Form.Item>
 
         <Form.Item
-          label="Email"
+          label={<GSLabel>Email</GSLabel>}
           name="email"
           rules={[
             { type: "email", message: "Plese enter valid email" },
             { required: true, message: "Please input your email!" },
           ]}
         >
-          <Input />
+          <Input className="custom-input" />
         </Form.Item>
 
         <Form.Item
-          label="Password"
+          label={<GSLabel>Password</GSLabel>}
           name="password"
           rules={[{ required: true, message: "Please input your password!" }]}
         >
-          <Input.Password />
+          <Input.Password className="custom-input" />
         </Form.Item>
 
-        <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-          <Button type="primary" htmlType="submit">
+        <div className="flex w-full items-center justify-center">
+          <button type="submit" className="btn-primary mr-2">
             Submit
-          </Button>
-        </Form.Item>
+          </button>
+          <Logout />
+        </div>
       </Form>
-      <Logout />
     </div>
   );
 };

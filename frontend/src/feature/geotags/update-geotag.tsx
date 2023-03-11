@@ -1,15 +1,9 @@
 import { Wrapper } from "@googlemaps/react-wrapper";
-import {
-  Button,
-  Form,
-  Input,
-  InputNumber,
-  notification,
-  Typography,
-} from "antd";
+import { Form, Input, InputNumber, notification, Typography } from "antd";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { axiosInstance, handleApiFormError } from "../../api";
+import { GSLabel } from "../../components/label";
 import { Map } from "../map/map";
 import { Marker } from "../map/marker";
 import { PulsingPoint } from "../map/pulsing-point";
@@ -113,18 +107,18 @@ export const UpdateGeotag = () => {
   if (!geotag) return null;
 
   return (
-    <div className="geotags-new">
+    <div className="content-container">
       {isEditing ? (
         <Wrapper>
-          <div style={{ position: "relative" }}>
-            <div className="geotags-new__map-pulsing-point">
+          <div className="geotag-map-wrapper">
+            <div className="geotag-map-wrapper__pulsing-point">
               <PulsingPoint />
             </div>
             <Map
               center={center}
               zoom={zoom}
               onIdle={onIdle}
-              style={{ flexGrow: "1", height: "500px", width: "500px" }}
+              style={{ flexGrow: "1", height: "500px" }}
             />
           </div>
         </Wrapper>
@@ -133,7 +127,7 @@ export const UpdateGeotag = () => {
           <Map
             center={{ lat: +geotag.location.lat, lng: +geotag.location.lng }}
             zoom={8}
-            style={{ flexGrow: "1", height: "500px", width: "500px" }}
+            style={{ flexGrow: "1", height: "500px" }}
           >
             <Marker
               position={{
@@ -151,83 +145,93 @@ export const UpdateGeotag = () => {
           onFinish={onFinish}
           autoComplete="off"
           form={form}
-          className="geotags-new__form"
+          className="w-full md:w-1/2"
         >
           <div>
             <Form.Item
-              label="Latitude"
+              label={<GSLabel>Latitude</GSLabel>}
               name="lat"
               rules={[{ required: true, message: "Please input latitude!" }]}
             >
-              <InputNumber />
+              <InputNumber className="custom-input" />
             </Form.Item>
 
             <Form.Item
-              label="Longtitude"
+              label={<GSLabel>Longtitude</GSLabel>}
               name="lng"
               rules={[{ required: true, message: "Please input longtitude!" }]}
             >
-              <InputNumber />
+              <InputNumber className="custom-input" />
             </Form.Item>
           </div>
 
           <Form.Item
-            label="Name"
+            label={<GSLabel>Name</GSLabel>}
             name="name"
             rules={[{ required: true, message: "Please input name!" }]}
           >
-            <Input />
+            <Input className="custom-input" />
           </Form.Item>
 
-          <Form.Item label="Description" name="description">
-            <Input />
+          <Form.Item label={<GSLabel>Description</GSLabel>} name="description">
+            <Input className="custom-input" />
           </Form.Item>
 
-          <div className="geotags-new__buttons-row">
-            <Button type="primary" htmlType="submit">
+          <div className="flex w-full items-center justify-center">
+            <button className="btn-primary mr-2" type="submit">
               Submit
-            </Button>
-
-            <Button onClick={() => setIsEditing(false)} htmlType="button">
+            </button>
+            <button
+              className="btn-secondary"
+              type="button"
+              onClick={() => setIsEditing(false)}
+            >
               Cancel
-            </Button>
+            </button>
           </div>
         </Form>
       ) : (
-        <div className="geotags-new__info">
-          <div className="geotags-new__text-row">
-            <Text strong>Name</Text>
-            <Text>{geotag.name}</Text>
+        <div className="w-full md:w-1/2">
+          <div className="w-full flex justify-between">
+            <Text className="default-text" strong>
+              Name
+            </Text>
+            <Text className="default-text">{geotag.name}</Text>
           </div>
           {geotag.description && (
-            <div className="geotags-new__text-row">
-              <Text strong>Descripition</Text>
-              <Text>{geotag.description}</Text>
+            <div className="w-full flex justify-between">
+              <Text className="default-text" strong>
+                Descripition
+              </Text>
+              <Text className="default-text">{geotag.description}</Text>
             </div>
           )}
-          <div className="geotags-new__text-row">
-            <Text strong>Latitude</Text>
-            <Text>{geotag.location.lat}</Text>
+          <div className="w-full flex justify-between">
+            <Text className="default-text" strong>
+              Latitude
+            </Text>
+            <Text className="default-text">{geotag.location.lat}</Text>
           </div>
-          <div className="geotags-new__text-row">
-            <Text strong>Longtitude</Text>
-            <Text>{geotag.location.lng}</Text>
+          <div className="w-full flex justify-between">
+            <Text className="default-text" strong>
+              Longtitude
+            </Text>
+            <Text className="default-text">{geotag.location.lng}</Text>
           </div>
-          <div className="geotags-new__buttons-row">
-            <Button
-              type="primary"
+          <div className="flex w-full items-center justify-center">
+            <button
               onClick={() => setIsEditing(true)}
-              htmlType="button"
+              className="btn-primary mr-2"
             >
               Edit
-            </Button>
-            <Button
-              danger
-              htmlType="button"
+            </button>
+            <button
+              className="btn-secondary"
+              type="button"
               onClick={() => deleteGeotag(geotag.geotag_id)}
             >
               Delete
-            </Button>
+            </button>
           </div>
         </div>
       )}

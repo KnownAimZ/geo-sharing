@@ -1,12 +1,12 @@
-import { Button, Form, Input, InputNumber, notification } from "antd";
+import { Form, Input, InputNumber, notification } from "antd";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { axiosInstance, handleApiFormError } from "../../api";
 import { Map } from "../map/map";
 import { Wrapper } from "@googlemaps/react-wrapper";
 const { useForm, useWatch } = Form;
-import "./geotags.scss";
 import { PulsingPoint } from "../map/pulsing-point";
+import { GSLabel } from "../../components/label";
 
 export const GeotagsNew = () => {
   const [form] = useForm();
@@ -73,17 +73,17 @@ export const GeotagsNew = () => {
   }, [lat, lng]);
 
   return (
-    <div className="geotags-new">
+    <div className="content-container">
       <Wrapper>
-        <div style={{ position: "relative" }}>
-          <div className="geotags-new__map-pulsing-point">
+        <div className="geotag-map-wrapper">
+          <div className="geotag-map-wrapper__pulsing-point">
             <PulsingPoint />
           </div>
           <Map
             center={center}
             zoom={zoom}
             onIdle={onIdle}
-            style={{ flexGrow: "1", height: "500px", width: "500px" }}
+            style={{ flexGrow: "1", height: "500px" }}
           />
         </div>
       </Wrapper>
@@ -93,45 +93,53 @@ export const GeotagsNew = () => {
         onFinish={onFinish}
         autoComplete="off"
         form={form}
-        className="geotags-new__form"
+        className="w-full md:w-1/2"
       >
         <div>
           <Form.Item
-            label="Latitude"
+            label={<GSLabel>Latitude</GSLabel>}
             name="lat"
             rules={[{ required: true, message: "Please input latitude!" }]}
           >
-            <InputNumber />
+            <InputNumber className="custom-input" />
           </Form.Item>
 
           <Form.Item
-            label="Longtitude"
+            label={<GSLabel>Longtitude</GSLabel>}
             name="lng"
             rules={[{ required: true, message: "Please input longtitude!" }]}
           >
-            <InputNumber />
+            <InputNumber className="custom-input" />
           </Form.Item>
         </div>
         <Form.Item
-          label="Name"
+          label={<GSLabel>Name</GSLabel>}
           name="name"
           rules={[{ required: true, message: "Please input name!" }]}
         >
-          <Input />
+          <Input className="custom-input" />
         </Form.Item>
 
-        <Form.Item label="Description" name="description">
-          <Input />
+        <Form.Item label={<GSLabel>Description</GSLabel>} name="description">
+          <Input className="custom-input" />
         </Form.Item>
-        <div className="geotags-new__buttons-row">
-          <Form.Item>
-            <Button type="primary" htmlType="submit">
-              Submit
-            </Button>
-          </Form.Item>
-          <Button onClick={setCurrentGeolocation}>Set current location</Button>
+        <div className="flex w-full items-center justify-center">
+          <button className="btn-primary mr-2" type="submit">
+            Submit
+          </button>
+          <button
+            className="btn-secondary"
+            type="button"
+            onClick={setCurrentGeolocation}
+          >
+            Set current location
+          </button>
         </div>
-        <Link to={"/geotags"}>To geotags</Link>
+        <div className="content-container mt-2">
+          <Link className="default-text" to={"/geotags"}>
+            To geotags
+          </Link>
+        </div>
       </Form>
     </div>
   );

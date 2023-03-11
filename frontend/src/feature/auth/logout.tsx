@@ -3,7 +3,6 @@ import React, { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../hooks";
 import { useNavigate } from "react-router-dom";
 import { removeUser } from "./authSlice";
-import { Button } from "antd";
 
 export const Logout = () => {
   const dispatch = useAppDispatch();
@@ -23,8 +22,8 @@ export const Logout = () => {
   };
 
   return (
-    <Button danger onClick={logout}>
-      Log out
-    </Button>
+    <button className="btn-secondary" type="button" onClick={logout}>
+      Logout
+    </button>
   );
 };

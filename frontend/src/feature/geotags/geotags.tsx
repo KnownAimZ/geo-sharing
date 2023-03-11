@@ -3,7 +3,6 @@ import { axiosInstance } from "../../api";
 import { Marker } from "../map/marker";
 import { Map } from "../map/map";
 import { Wrapper } from "@googlemaps/react-wrapper";
-import "./geotags.scss";
 import { Empty, Input, Typography } from "antd";
 import { Link } from "react-router-dom";
 import classNames from "classnames";
@@ -55,13 +54,13 @@ export const Geotags = () => {
 
   return (
     <>
-      <div className="geotags-page">
+      <div className="content-container">
         <Wrapper>
           <Map
             center={center}
             onIdle={onIdle}
             zoom={zoom}
-            style={{ flexGrow: "1", height: "500px", width: "500px" }}
+            style={{ flexGrow: "1", height: "500px" }}
           >
             {geotags.map((geotag: any) => (
               <Marker
@@ -74,10 +73,11 @@ export const Geotags = () => {
             ))}
           </Map>
         </Wrapper>
-        <div className="geotag-list">
-          <Text>Find geotag by name:</Text>
+        <div className="list">
+          <span className="default-text">Find geotag by name:</span>
           <Input
             placeholder="Find by name"
+            className="custom-input"
             value={searchGeotag}
             onChange={(event) => setSearchGeotag(event.target.value)}
           />
@@ -85,22 +85,32 @@ export const Geotags = () => {
             <div
               key={geotag.geotag_id}
               className={classNames({
-                "geotag-list__item": true,
-                "geotag-list__item--selected":
-                  geotag.geotag_id === focusedItemId,
+                list__item: true,
+                "list__item--selected": geotag.geotag_id === focusedItemId,
               })}
               onClick={() => focusOn(geotag)}
             >
-              <div className="geotag-list__item__block">
-                <Text strong>{geotag.name}</Text>
-                <Text>{geotag.description}</Text>
+              <div className="list__item__block">
+                <Text className="default-text" strong>
+                  {geotag.name}
+                </Text>
+                <Text className="default-text">{geotag.description}</Text>
               </div>
-              <Link to={`/geotags/${geotag.geotag_id}`}>Edit</Link>
+              <Link
+                className="default-text"
+                to={`/geotags/${geotag.geotag_id}`}
+              >
+                Edit
+              </Link>
             </div>
           ))}
         </div>
       </div>
-      <Link to={"/geotags-new"}>Create new</Link>
+      <div className="content-container mt-2">
+        <Link className="default-text" to={"/geotags-new"}>
+          Create new
+        </Link>
+      </div>
     </>
   );
 };

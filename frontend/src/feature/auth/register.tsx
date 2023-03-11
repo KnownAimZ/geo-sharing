@@ -1,4 +1,4 @@
-import { Button, Form, Input, notification } from "antd";
+import { Form, Input, notification } from "antd";
 import { axiosInstance, handleApiFormError, setToken } from "../../api";
 import React, { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
@@ -68,7 +68,7 @@ export const Register = () => {
           name="first_name"
           rules={[{ required: true, message: "Please input your first name!" }]}
         >
-          <Input />
+          <Input className="custom-input" />
         </Form.Item>
 
         <Form.Item
@@ -76,7 +76,7 @@ export const Register = () => {
           name="last_name"
           rules={[{ required: true, message: "Please input your last name!" }]}
         >
-          <Input />
+          <Input className="custom-input" />
         </Form.Item>
 
         <Form.Item
@@ -87,7 +87,7 @@ export const Register = () => {
             { required: true, message: "Please input your email!" },
           ]}
         >
-          <Input />
+          <Input className="custom-input" />
         </Form.Item>
 
         <Form.Item
@@ -95,7 +95,7 @@ export const Register = () => {
           name="password"
           rules={[{ required: true, message: "Please input your password!" }]}
         >
-          <Input.Password />
+          <Input.Password className="custom-input" />
         </Form.Item>
 
         <Form.Item
@@ -103,20 +103,14 @@ export const Register = () => {
           name="password_confirmation"
           rules={[{ required: true, message: "Please input your password!" }]}
         >
-          <Input.Password />
+          <Input.Password className="custom-input" />
         </Form.Item>
 
         <div className="flex w-full items-center justify-center">
-          <button
-            className="btn-primary mr-2"
-            type="submit"
-          >
+          <button className="btn-primary mr-2" type="submit">
             Register
           </button>
-          <Link
-            className="btn-secondary"
-            to={"/login"}
-          >
+          <Link className="btn-secondary" to={"/login"}>
             To Login
           </Link>
         </div>

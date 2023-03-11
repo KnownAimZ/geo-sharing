@@ -1,7 +1,7 @@
 import { ThemeToggler } from "./components/theme-toggler";
 import { useAppSelector } from "./hooks";
 
-export const ThemeWrapper = ({ children }) => {
+export const ThemeWrapper: React.FC<any> = ({ children }) => {
   const isDarkTheme = useAppSelector((state) => state.theme.isDarkTheme);
 
   return (

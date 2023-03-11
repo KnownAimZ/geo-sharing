@@ -68,7 +68,7 @@ export const Login = () => {
             { required: true, message: "Please input your email!" },
           ]}
         >
-          <Input prefix={<UserOutlined />} />
+          <Input className="custom-input" prefix={<UserOutlined />} />
         </Form.Item>
 
         <Form.Item
@@ -76,20 +76,14 @@ export const Login = () => {
           name="password"
           rules={[{ required: true, message: "Please input your password!" }]}
         >
-          <Input.Password prefix={<LockOutlined />} />
+          <Input.Password className="custom-input" prefix={<LockOutlined />} />
         </Form.Item>
 
         <div className="flex w-full items-center justify-center">
-          <button
-            className="btn-primary mr-2"
-            type="submit"
-          >
+          <button className="btn-primary mr-2" type="submit">
             Login
           </button>
-          <Link
-            className="btn-secondary"
-            to={"/register"}
-          >
+          <Link className="btn-secondary" to={"/register"}>
             To Register
           </Link>
         </div>

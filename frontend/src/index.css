@@ -1,14 +1,89 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 @layer components {
   .full-screen-container {
     @apply h-screen w-screen flex justify-center items-center bg-white dark:bg-black;
+  }
+  .app-container {
+    @apply min-h-screen w-screen flex flex-row bg-white dark:bg-black;
   }
   .btn-primary {
     @apply bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded;
   }
   .btn-secondary {
-    @apply bg-stone-50 hover:bg-stone-200 text-black hover:text-black border border-black dark:bg-stone-900 dark:hover:bg-stone-800 dark:text-white dark:hover:text-white dark:border-white font-bold py-2 px-4 rounded
+    @apply bg-stone-50 hover:bg-stone-200 text-black hover:text-black border border-black dark:bg-stone-900 dark:hover:bg-stone-800 dark:text-white dark:hover:text-white dark:border-white font-bold py-2 px-4 rounded;
+  }
+  .custom-input {
+    @apply bg-white text-black dark:text-white dark:bg-black w-full !important;
+    input {
+      @apply bg-white text-black dark:text-white dark:bg-black !important;
+      &::placeholder {
+        @apply text-black dark:text-white;
+      }
+    }
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus,
+    input:-webkit-autofill:active {
+      transition: background-color 9999s ease-in-out 1s;
+    }
+    > .ant-input-suffix > .anticon {
+      @apply text-black dark:text-white;
+    }
+    &::placeholder {
+      @apply text-black dark:text-white;
+    }
+  }
+  .default-text {
+    @apply text-black dark:text-white;
+  }
+  .sidebar {
+    @apply w-64 p-2 hidden md:flex flex-col gap-1 border-r border-neutral-200 dark:border-neutral-700;
+
+    &__item {
+      @apply text-black dark:text-white p-4 hover:bg-sky-200 dark:hover:bg-sky-700 rounded-lg;
+      &--selected {
+        @apply bg-sky-200 dark:bg-sky-700;
+      }
+    }
+  }
+  .menu {
+    @apply w-full pt-20 p-2 flex flex-col gap-1 bg-white dark:bg-black min-h-screen;
+
+    &__item {
+      @apply text-black dark:text-white p-4 hover:bg-sky-200 dark:hover:bg-sky-700 rounded-lg;
+      &--selected {
+        @apply bg-sky-200 dark:bg-sky-700;
+      }
+    }
+  }
+  .topbar {
+    @apply z-10 w-full h-16 fixed flex flex-row justify-between items-center p-2 border-b border-neutral-200 dark:border-neutral-700 bg-white dark:bg-black;
+  }
+  .content-container {
+    @apply w-full max-w-screen-md mt-16 mx-auto flex flex-col md:flex-row justify-start md:justify-center gap-4;
+  }
+  .list {
+    @apply w-full md:w-80 gap-2 flex flex-col;
+    &__item {
+      @apply border rounded-lg p-2 w-full flex flex-row justify-between items-center;
+
+      &__block {
+        @apply flex flex-col;
+      }
+
+      &--selected {
+        @apply border-blue-600;
+      }
+    }
+  }
+  .geotag-map-wrapper {
+    @apply relative w-full md:w-1/2;
+
+    &__pulsing-point {
+      @apply z-10 absolute left-1/2 top-1/2 w-16 h-16 -ml-8 -mt-8;
+    }
   }
 }
