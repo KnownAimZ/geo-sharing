@@ -40,7 +40,7 @@
     @apply text-black dark:text-white;
   }
   .sidebar {
-    @apply w-64 p-2 hidden md:flex flex-col gap-1 border-r border-neutral-200 dark:border-neutral-700;
+    @apply w-64 p-2 pt-20 hidden md:flex flex-col gap-1 border-r border-neutral-200 dark:border-neutral-700;
 
     &__item {
       @apply text-black dark:text-white p-4 hover:bg-sky-200 dark:hover:bg-sky-700 rounded-lg;
