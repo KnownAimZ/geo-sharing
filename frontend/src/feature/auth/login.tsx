@@ -7,6 +7,7 @@ import React, { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "antd/es/form/Form";
 import { GSLabel } from "../../components/label";
+import GeoShareLogo from "../../assets/geo-sharing.jpg";
 
 type TLogin = {
   email: string;
@@ -52,42 +53,62 @@ export const Login = () => {
   };
 
   return (
-    <div className="full-screen-container">
-      <Form
-        name="basic"
-        initialValues={{ remember: true }}
-        onFinish={onFinish}
-        autoComplete="off"
-        form={form}
-      >
-        <Form.Item
-          label={<GSLabel>Email</GSLabel>}
-          name="email"
-          rules={[
-            { type: "email", message: "Plese enter valid email" },
-            { required: true, message: "Please input your email!" },
-          ]}
-        >
-          <Input className="custom-input" prefix={<UserOutlined />} />
-        </Form.Item>
+    <>
+      <img className="block md:hidden w-full h-full fixed" src={GeoShareLogo} />
+      <div className="full-screen-container gap-8">
+        <div className="flex flex-col w-full md:w-96 mx-4 md:mx-0 p-4 md:p-0 rounded-md bg-white dark:bg-black z-10">
+          <div className="flex w-full items-center justify-between mb-8">
+            <span className="default-text text-2xl font-semibold">
+              👋 Login to App
+            </span>
+            <Link className="btn-secondary whitespace-nowrap" to={"/register"}>
+              To Register
+            </Link>
+          </div>
+          <Form
+            className="rounded-md p-8 border"
+            name="basic"
+            initialValues={{ remember: true }}
+            onFinish={onFinish}
+            autoComplete="off"
+            form={form}
+          >
+            <Form.Item
+              label={<GSLabel>Email</GSLabel>}
+              name="email"
+              rules={[
+                { type: "email", message: "Plese enter valid email" },
+                { required: true, message: "Please input your email!" },
+              ]}
+            >
+              <Input className="custom-input" prefix={<UserOutlined />} />
+            </Form.Item>
 
-        <Form.Item
-          label={<GSLabel>Password</GSLabel>}
-          name="password"
-          rules={[{ required: true, message: "Please input your password!" }]}
-        >
-          <Input.Password className="custom-input" prefix={<LockOutlined />} />
-        </Form.Item>
+            <Form.Item
+              label={<GSLabel>Password</GSLabel>}
+              name="password"
+              rules={[
+                { required: true, message: "Please input your password!" },
+              ]}
+            >
+              <Input.Password
+                className="custom-input"
+                prefix={<LockOutlined />}
+              />
+            </Form.Item>
 
-        <div className="flex w-full items-center justify-center">
-          <button className="btn-primary mr-2" type="submit">
-            Login
-          </button>
-          <Link className="btn-secondary" to={"/register"}>
-            To Register
-          </Link>
+            <div className="flex flex-col w-full items-center justify-center">
+              <button className="btn-primary mr-2 w-full" type="submit">
+                Login
+              </button>
+            </div>
+          </Form>
         </div>
-      </Form>
-    </div>
+        <img
+          className="hidden md:block object-cover h-5/6 w-2/6 rounded-3xl"
+          src={GeoShareLogo}
+        />
+      </div>
+    </>
   );
 };
